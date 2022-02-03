@@ -1,0 +1,206 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+	background-color: #22347E;
+	font-family: Tahoma;
+}
+
+/* Navigation bar */
+.navBar {
+	overflow: hidden;
+	background-color: #fff;
+	position: fixed; /* Set the navbar to fixed position */
+	top: 0; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+	margin: 0px;
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.11); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.11);
+}
+
+/* Navigation bar links */
+.navBar a {
+  opacity: 1.0;
+  transition: .4s;
+}
+
+/* Navigation bar left elements */
+.navBarInnerLeft {
+	float: left;
+	font-family: Tahoma;
+	font-size: 53px;
+	display: block;
+	color: #333;
+	text-align: center;
+	padding: 16px 0px 0px 28px;
+	text-decoration: none;
+	position: relative;
+	vertical-align: middle;
+	font-weight: bold;
+	transition: .4s;
+	
+}
+
+/* Navigation bar right elements */
+.navBarInnerRight {
+	float: right;
+	display: block;
+	color: #f2f2f2;
+	text-align: right;
+	padding: 11px 18px 6px 12px;
+	text-decoration: none;
+	position: relative;
+	vertical-align: middle;
+}
+
+/* Navigation bar logo image */
+.navBar img {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 23px 12px 22px 25px;
+  text-decoration: none;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Navigation bar left elements link settings */
+.navBarInnerLeft a {
+  float: left;
+  font-family: Tahoma;
+  font-size: 55px;
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 16px 0px 0px 20px;
+  text-decoration: none;
+  position: relative;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+/* Navigation bar right elements link settings */
+.navBarInnerRight a {
+  float: right;
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size:16px;
+  display: block;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  padding: 26px 25px 0px 25px;
+  position: relative;
+  vertical-align: middle;
+  
+	transition: .4s;
+}
+
+/* Navigation bar links (mouse-over settings) */
+.navBar a:hover {
+  opacity: 0.4;
+}
+
+/* Navigation bar links (mouse-over settings) */
+.navBarInnerRight a:hover {
+  opacity: 0.4;
+}
+
+
+
+/* Body container */
+.container {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+/* Block container for individual posts */
+.blog-post {
+	background-color: #fff;
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13);
+	border-radius: 4px;
+	padding: 40px;
+	margin: 20px 0;
+}
+
+/* Block post titles */
+.title {
+	margin: 0;
+	color: #333;
+}
+
+/* Block post body text */
+.text {
+	color: #333;
+	margin: 20px 0;
+}
+
+/* User info */
+.user-info {
+	display: flex;
+	align-items: center;
+}
+
+/* User info */
+.user-info img {
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+}
+
+/* User info */
+.user-info span {
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+/* Loading animation */
+.loading {
+	opacity: 0;
+	display: flex;
+	position: fixed;
+	bottom: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: opacity .3s ease-in;
+}
+
+/* Loading animation */
+.loading.show {
+	opacity: 1;
+}
+
+/* Loading animation */
+.ball {
+	background-color: #777;
+	border-radius: 50%;
+	margin: 5px;
+	height: 10px;
+	width: 10px;
+	animation: jump .5s ease-in infinite;
+}
+
+/* Loading animation */
+.ball:nth-of-type(2) {
+	animation-delay: 0.1s;
+}
+
+/* Loading animation */
+.ball:nth-of-type(3) {
+	animation-delay: 0.2s;
+}
+
+/* Loading animation */
+@keyframes jump {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	
+	50% {
+		transform: translateY(-10px);
+	}
+}
