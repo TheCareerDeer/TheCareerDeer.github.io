@@ -10,12 +10,12 @@ body {
 
 @font-face {
   font-family: Tahoma;
-  src: url(tahoma.ttf);
+  src: url(fonts/tahoma.ttf);
 }
 
 @font-face {
   font-family: Tahoma;
-  src: url(tahomabd.ttf);
+  src: url(fonts/tahomabd.ttf);
   font-weight: bold;
 }
 
