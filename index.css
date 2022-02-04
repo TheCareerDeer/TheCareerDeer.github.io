@@ -41,11 +41,11 @@ body {
 .navBarInnerLeft {
 	float: left;
 	font-family: Tahoma;
-	font-size: 53px;
+	font-size: 45px;
 	display: block;
 	color: #333;
 	text-align: center;
-	padding: 16px 0px 0px 28px;
+	padding: 19px 0px 0px 28px;
 	text-decoration: none;
 	position: relative;
 	vertical-align: middle;
