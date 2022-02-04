@@ -17,7 +17,7 @@
 <body>
 	<!-- Navigation bar -->
 	<div class="navBar">
-		<a href="../">
+		<a href="../index.html">
 		<img src="../images/logo-small-1.png">
 		<div class="navBarInnerLeft"><div id="small">THE<br></div>CAREER DEER</div>
 		</a>
@@ -26,7 +26,7 @@
 		<div class="navBarInnerRight">
 			<a href="login.html">LOGIN</a>
 			<a href="create-account.html">CREATE ACCOUNT</a>
-			<a href="../about/">ABOUT</a>
+			<a href="about/index.html">ABOUT</a>
 		</div>
 	</div><br><br><br><br><br><br>
 	
