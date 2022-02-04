@@ -8,6 +8,17 @@ body {
 	font-family: Tahoma;
 }
 
+@font-face {
+  font-family: Tahoma;
+  src: url(tahoma.ttf);
+}
+
+@font-face {
+  font-family: Tahoma;
+  src: url(tahomabd.ttf);
+  font-weight: bold;
+}
+
 /* Navigation bar */
 .navBar {
 	overflow: hidden;
