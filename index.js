@@ -5,6 +5,7 @@ getPost();
 getPost();
 getPost();
 getPost();
+getPost();
 
 window.addEventListener('scroll', () => {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
