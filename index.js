@@ -6,6 +6,7 @@ getPost();
 getPost();
 getPost();
 getPost();
+getPost();
 
 window.addEventListener('scroll', () => {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
@@ -44,7 +45,7 @@ function getRandomNr() {
 
 function addDataToDOM(data) {
 	const postElement = document.createElement('div');
-	postElement.classList.add('blog-post');
+	postElement.classList.add('block-job');
 	postElement.innerHTML = `
 		<h2 class="title">${data.post.title}</h2>
 		<p class="text">${data.post.body}</p>

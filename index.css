@@ -123,14 +123,29 @@ body {
 
 
 
+
+
+
 /* Body container */
 .container {
 	margin: 0 auto;
 	max-width: 600px;
 }
 
+
+
 /* Block container for individual posts */
-.blog-post {
+.block-about {
+	background-color: #fff;
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13);
+	border-radius: 4px;
+	padding: 40px;
+	margin: 60px 0;
+}
+
+/* Block container for individual posts */
+.block-job {
 	background-color: #fff;
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13);
@@ -138,6 +153,7 @@ body {
 	padding: 40px;
 	margin: 20px 0;
 }
+
 
 /* Block post titles */
 .title {
@@ -169,6 +185,8 @@ body {
 	font-size: 13px;
 	margin-left: 10px;
 }
+
+
 
 /* Loading animation */
 .loading {
