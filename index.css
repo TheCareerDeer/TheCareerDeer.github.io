@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	text-decoration: none;
+	font-family: Tahoma;
 }
 
 body {
@@ -116,7 +118,7 @@ body {
 	color: #333;
 	text-align: center;
 	text-decoration: none;
-	padding: 26px 23px 0px 23px;
+	padding: 32px 23px 0px 23px;
 	position: relative;
 	vertical-align: middle;
 	transition: .4s;
@@ -157,10 +159,10 @@ body {
 	border-radius: 4px;
 	padding: 40px;
 	margin: 33px 0;
-    animation: fadein 1s;
-    -moz-animation: fadein 1s; /* Firefox */
-    -webkit-animation: fadein 1s; /* Safari and Chrome */
-    -o-animation: fadein 1s; /* Opera */
+    animation: fadein .75s;
+    -moz-animation: fadein .75s; /* Firefox */
+    -webkit-animation: fadein .75s; /* Safari and Chrome */
+    -o-animation: fadein .75s; /* Opera */
 }
 
 
@@ -189,6 +191,44 @@ body {
 .text {
 	color: #333;
 	margin: 20px 0;
+}
+
+.link-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	width: 500px;
+	margin-left: 5px;
+}
+
+.link-button {
+	opacity: 1.0;
+	transition: 1s;
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #333;
+	color: #fff;
+	height: 50px;
+	width: 156px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0px 10px 0px 10px;
+}
+
+.link-button-text a {
+	vertical-align: middle;
+	align: middle;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	opacity: 1.0;
+}
+
+.link-button:hover {
+	opacity: 0.4;
 }
 
 /* User info */
