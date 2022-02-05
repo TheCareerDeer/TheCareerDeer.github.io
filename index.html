@@ -42,17 +42,8 @@
 		</div>
 	</div>
 	
-	<script>
-	  $(document).ready(function() {
-      $("a").click(function(event){
-          event.preventDefault();
-          linkLocation = this.href;  
-         $('.block-job').addClass('fadeOutDown').delay(3000).queue(function(){
-           window.location = linkLocation;
-        });
-      });
-    });
-	</script>
+	<script src="fade.js"></script>
+	
 </body>
 
 </html>
