@@ -157,7 +157,7 @@ body {
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13);
 	border-radius: 4px;
-	padding: 40px;
+	padding: 30px;
 	margin: 33px 0;
     animation: fadein .75s;
     -moz-animation: fadein .75s; /* Firefox */
@@ -172,7 +172,7 @@ body {
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.13);
 	border-radius: 4px;
-	padding: 40px;
+	padding: 30px;
 	margin: 33px 0;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */

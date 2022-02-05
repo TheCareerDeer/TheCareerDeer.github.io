@@ -4,19 +4,17 @@ const loading = document.getElementsByName('loading');
 getPost();
 getPost();
 getPost();
-getPost();
-getPost();
+
+
+
 getPost();
 
 window.addEventListener('scroll', () => {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 	
-	console.log( { scrollTop, scrollHeight, clientHeight });
-	
 	if(clientHeight + scrollTop >= scrollHeight - 20) {
 		// show the loading animation
 		showLoading();
-		console.log('to the bottom');
 	}
 });
 
@@ -28,19 +26,57 @@ function showLoading() {
 }
 
 async function getPost() {
-	const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
-	const postData = await postResponse.json();
+	if(getRandomInt(0,13) != 5) {
+		const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
+		const postData = await postResponse.json();
+		
+		const userResponse = await fetch('https://randomuser.me/api');
+		const userData = await userResponse.json();
+		
+		const data = { post: postData, user: userData.results[0] };
+		
+		addDataToDOM(data);
+	}
+	else {
+		getInspo();
+	}
+}
+
+function getInspo() {
+	var x = getRandomInt(0,2);
+	console.log(x);
+	const postElement = document.createElement('div');
+	postElement.classList.add('block-job');
 	
-	const userResponse = await fetch('https://randomuser.me/api');
-	const userData = await userResponse.json();
-	
-	const data = { post: postData, user: userData.results[0] };
-	
-	addDataToDOM(data);
+	if(x == 0) {
+	postElement.innerHTML = `
+		<h2 class="title">You've Got This</h2><br>
+		<img src="images/deer/001.jpg" style="max-width: 100%; border-radius: 4px;"/>
+		<br><br>
+		<div class="user-info">73% of global employers are struggling to find candidates who meet their standards.
+		</div>
+	`;
+	}
+	else {
+	postElement.innerHTML = `
+		<h2 class="title">Don't Give Up Yet</h2><br>
+		<img src="images/deer/002.jpg" style="max-width: 100%; border-radius: 4px;"/>
+		<br><br>
+		<div class="user-info">The average job search in the United States takes five months. You're on the right track, baby!
+		</div>
+	`;	
+	}
+	container.appendChild(postElement);
 }
 
 function getRandomNr() {
 	return Math.floor(Math.random() * 100) + 1;
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
 function addDataToDOM(data) {
