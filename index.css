@@ -204,7 +204,7 @@ body {
 
 .link-button {
 	opacity: 1.0;
-	transition: 1s;
+	transition: .7s;
 	display: inline-block;
 	border-radius: 4px;
 	background-color: #333;
@@ -262,7 +262,7 @@ input[type=text], input[type=password] {
 
 .button-login {
 	opacity: 1.0;
-	transition: 1s;
+	transition: .7s;
 	display: inline-block;
 	border-radius: 4px;
 	background: none;
@@ -271,13 +271,12 @@ input[type=text], input[type=password] {
 	outline: none;
 	color: #fff;
 	height: 50px;
-	width: 176px;
+	width: 35%;
 	text-decoration: none;
 	text-align: center;
 	font-weight: bold;
 	font-size: 14px;
 	border: none;
-	margin-right: 10px;
 	padding: 0;
 	cursor: pointer;
 	outline: inherit;
