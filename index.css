@@ -250,6 +250,43 @@ body {
 	margin-left: 10px;
 }
 
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #333;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-login {
+	opacity: 1.0;
+	transition: 1s;
+	display: inline-block;
+	border-radius: 4px;
+	background: none;
+	background-color: #333;
+	-webkit-appearance: none;
+	outline: none;
+	color: #fff;
+	height: 50px;
+	width: 176px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	border: none;
+	margin-right: 10px;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.button-login:hover {
+	opacity: 0.4;
+}
+
 
 
 /* Loading animation */
