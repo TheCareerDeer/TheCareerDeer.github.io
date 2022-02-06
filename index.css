@@ -195,21 +195,25 @@ body {
 
 .link-buttons {
 	display: flex;
+	text-align: center;
 	align-items: center;
 	justify-content: center;
-	height: 60px;
+	height: 55px;
 	width: 500px;
 }
 
 .link-button {
 	opacity: 1.0;
 	transition: .7s;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 	display: inline-block;
 	border-radius: 4px;
 	background-color: #333;
 	color: #fff;
-	height: 50px;
-	width: 156px;
+	height: 55px;
+	width: 167px;
 	text-decoration: none;
 	text-align: center;
 	font-weight: bold;
@@ -269,8 +273,8 @@ input[type=text], input[type=password] {
 	-webkit-appearance: none;
 	outline: none;
 	color: #fff;
-	height: 50px;
-	width: 35%;
+	height: 55px;
+	width: 37%;
 	text-decoration: none;
 	text-align: center;
 	font-weight: bold;
