@@ -24,6 +24,20 @@ body {
 	background-color: #db7100;
 }
 
+a {
+	color: #B65300;
+	opacity: 1.0;
+	transition: .4s;
+}
+
+a:hover {
+	opacity: 0.5;
+}
+
+a:visited {
+	color: #B65300;
+	opacity: 1.0;
+}
 
 
 
@@ -82,7 +96,7 @@ body {
 	display: block;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 12px 14px 24px 28px;
+	padding: 13px 14px 23px 28px;
 	position: relative;
 	vertical-align: middle;
 	z-index: 222222;
@@ -181,6 +195,12 @@ body {
 	color: #333;
 }
 
+/* Block post titles */
+.subtitle {
+	margin: 0;
+	color: #333;
+}
+
 /* Block post body text */
 .text {
 	color: #333;
@@ -205,7 +225,7 @@ body {
 	font-size: 14px;
 	font-weight: bold;
 	height: 55px;
-	width: 167px;
+	width: 166px;
 	margin: 0px 10px 0px 10px;
 	opacity: 1.0;
 	align-items: center;
