@@ -46,7 +46,7 @@ function getInspo() {
 	var x = getRandomInt(0,2);
 	console.log(x);
 	const postElement = document.createElement('div');
-	postElement.classList.add('block-job');
+	postElement.classList.add('block-post');
 	
 	if(x == 0) {
 	postElement.innerHTML = `
@@ -81,7 +81,7 @@ function getRandomInt(min, max) {
 
 function addDataToDOM(data) {
 	const postElement = document.createElement('div');
-	postElement.classList.add('block-job');
+	postElement.classList.add('block-post');
 	postElement.innerHTML = `
 		<h2 class="title">${data.post.title}</h2>
 		<p class="text">${data.post.body}</p>

@@ -1,15 +1,4 @@
-* {
-	box-sizing: border-box;
-	text-decoration: none;
-	font-family: Tahoma;
-}
-
-body {
-	margin: 0px;
-	background-color: #db7100;
-	font-family: Tahoma;
-}
-
+/* Tahoma font imported */
 @font-face {
 	font-family: Tahoma;
 	src: url(fonts/tahoma.ttf);
@@ -21,16 +10,32 @@ body {
 	font-weight: bold;
 }
 
-/* Navigation bar */
+
+
+
+/*********************** Global settings ***********************/
+* {
+	font-family: Tahoma;
+	text-decoration: none;
+}
+
+body {
+	margin: 0px;
+	background-color: #db7100;
+}
+
+
+
+
+/*********************** Navigation bar ***********************/
 .navBar {
-	overflow: hidden;
 	background-color: #fff;
-	position: fixed; /* Set the navbar to fixed position */
-	top: 0; /* Position the navbar at the top of the page */
-	width: 100%; /* Full width */
+	width: 100%;
 	margin: 0px;
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
+	overflow: hidden;
+	position: fixed;
 	z-index: 111111;
 }
 
@@ -44,25 +49,18 @@ body {
 /* Navigation bar left elements */
 .navBarInnerLeft {
 	float: left;
-	font-family: Tahoma;
 	font-size: 48px;
 	display: block;
 	color: #333;
 	letter-spacing: -1px;
 	text-align: left;
 	padding: 25px 0px 0px 17px;
-	text-decoration: none;
 	position: relative;
 	vertical-align: middle;
 	font-weight: bold;
 	transition: .4s;
 	z-index: 222222;
 	
-}
-
-#small {
-	font-size: 20px;
-	margin-bottom: -10px;
 }
 
 /* Navigation bar right elements */
@@ -73,7 +71,6 @@ body {
 	letter-spacing: -1px;
 	text-align: right;
 	padding: 20px 18px 6px 12px;
-	text-decoration: none;
 	position: relative;
 	vertical-align: middle;
 	z-index: 222222;
@@ -86,7 +83,6 @@ body {
 	color: #f2f2f2;
 	text-align: center;
 	padding: 12px 14px 24px 28px;
-	text-decoration: none;
 	position: relative;
 	vertical-align: middle;
 	z-index: 222222;
@@ -95,13 +91,11 @@ body {
 /* Navigation bar left elements link settings */
 .navBarInnerLeft a {
 	float: left;
-	font-family: Tahoma;
 	font-size: 55px;
 	display: block;
 	color: #333;
 	text-align: center;
 	padding: 20px 0px 0px 20px;
-	text-decoration: none;
 	position: relative;
 	vertical-align: middle;
 	font-weight: bold;
@@ -111,13 +105,11 @@ body {
 /* Navigation bar right elements link settings */
 .navBarInnerRight a {
 	float: right;
-	font-family: Tahoma;
 	font-weight: bold;
-	font-size:18px;
+	font-size:17px;
 	display: block;
 	color: #333;
 	text-align: center;
-	text-decoration: none;
 	padding: 32px 23px 0px 23px;
 	position: relative;
 	vertical-align: middle;
@@ -137,12 +129,16 @@ body {
 	z-index: 222222;
 }
 
+/* Styling for small 'THE' in navigation logo */
+#small {
+	font-size: 20px;
+	margin-bottom: -10px;
+}
 
 
 
 
-
-/* Body container */
+/*********************** Body container and contained elements ***********************/
 .container {
 	margin: 0 auto;
 	max-width: 600px;
@@ -150,9 +146,8 @@ body {
 }
 
 
-
-/* Block container for individual posts */
-.block-about {
+/* Block container for stand-alone pages */
+.block-content {
 	background-color: #fff;
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
@@ -165,9 +160,8 @@ body {
     -o-animation: fadein .75s; /* Opera */
 }
 
-
-/* Block container for individual posts */
-.block-job {
+/* Block container for homepage post */
+.block-post {
 	background-color: #fff;
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
@@ -193,6 +187,7 @@ body {
 	margin: 20px 0;
 }
 
+/* Container for multiple buttons */
 .link-buttons {
 	display: flex;
 	text-align: center;
@@ -202,34 +197,27 @@ body {
 	width: 500px;
 }
 
+/* Basic link button */
 .link-button {
-	opacity: 1.0;
-	transition: .7s;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	display: inline-block;
-	border-radius: 4px;
-	background-color: #333;
 	color: #fff;
+	background-color: #333;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
 	height: 55px;
 	width: 167px;
-	text-decoration: none;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
 	margin: 0px 10px 0px 10px;
-}
-
-.link-button-text a {
-	vertical-align: middle;
-	align: middle;
-	text-decoration: none;
-	color: #fff;
+	opacity: 1.0;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
+	display: inline-block;
+	transition: .7s;
+	vertical-align: middle;
 	opacity: 1.0;
 }
 
+/* Basic link button (mouse-over settings) */
 .link-button:hover {
 	opacity: 0.4;
 }
@@ -253,6 +241,7 @@ body {
 	margin-left: 10px;
 }
 
+/* Input boxes (login, create account) */
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -263,35 +252,36 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+/* Login page button */
 .button-login {
-	opacity: 1.0;
-	transition: .7s;
-	display: inline-block;
-	border-radius: 4px;
 	background: none;
 	background-color: #333;
-	-webkit-appearance: none;
-	outline: none;
+	border: none;
+	border-radius: 4px;
 	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
 	height: 55px;
 	width: 37%;
-	text-decoration: none;
 	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	border: none;
+	-webkit-appearance: none;
+	display: inline-block;
 	padding: 0;
 	cursor: pointer;
-	outline: inherit;
+	outline: none;
+	opacity: 1.0;
+	transition: .7s;
 }
 
+/* Login page button (mouse-over settings) */
 .button-login:hover {
 	opacity: 0.4;
 }
 
 
 
-/* Loading animation */
+
+/*********************** Loading animations ***********************/
 .loading {
 	opacity: 0;
 	display: flex;
@@ -302,12 +292,10 @@ input[type=text], input[type=password] {
 	transition: opacity .3s ease-in;
 }
 
-/* Loading animation */
 .loading.show {
 	opacity: 1;
 }
 
-/* Loading animation */
 .ball {
 	background-color: #777;
 	border-radius: 50%;
@@ -317,60 +305,35 @@ input[type=text], input[type=password] {
 	animation: jump .5s ease-in infinite;
 }
 
-/* Loading animation */
 .ball:nth-of-type(2) {
 	animation-delay: 0.1s;
 }
 
-/* Loading animation */
 .ball:nth-of-type(3) {
 	animation-delay: 0.2s;
 }
 
-/* Loading animation */
 @keyframes jump {
-	0%, 100% {
-		transform: translateY(0);
-	}
-	
-	50% {
-		transform: translateY(-10px);
-	}
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
 }
 
 @keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+@-moz-keyframes fadein {	 /* Firefox */
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+@-webkit-keyframes fadein { 	/* Safari and Chrome */
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
+@-o-keyframes fadein { 		/* Opera */
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
