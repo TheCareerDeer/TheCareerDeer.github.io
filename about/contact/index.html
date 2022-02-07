@@ -4,6 +4,7 @@
 
 <head>
 	<title>The Career Deer - Contact Us</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Homepage stylesheet -->
 	<link rel="stylesheet" type="text/css" href="../../index.css" />
@@ -48,7 +49,15 @@
 						<span style="font-size: 1.05vmin; font-weight: none;">
 							&nbsp;&nbsp;&nbsp;
 							<a href="https://www.linkedin.com/in/garrett-haines-210aa51a1/">LinkedIn</a>&nbsp;&nbsp; • &nbsp;
-							<a href="https://github.com/GarrettHaines">GitHub</a>
+							<a href="https://github.com/GarrettHaines">GitHub</a>&nbsp;&nbsp; • &nbsp;
+							
+							<div class="tooltip">
+								<span style="color: #B65300;" onclick="copyEmail()" onmouseover="resetEmail()" onmouseout="copiedEmail()">
+									<span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
+								Email
+								</span>
+							</div>
+							
 						</span>
 					</h3>
 					
@@ -67,6 +76,35 @@
 			
 		</div>
 	</div>
+	
+	<script>
+		function copyEmail() {
+		  var copyText = "GarrettMHaines@gmail.com";
+		  navigator.clipboard.writeText(copyText);
+		  
+		  var tooltip = document.getElementById("myTooltip");
+		  tooltip.innerHTML = "Copied: " + copyText;
+		}
+
+		function copiedEmail() {
+			sleep(300);
+		}
+		
+		function resetEmail() {
+		  var tooltip = document.getElementById("myTooltip");
+		  tooltip.innerHTML = "Copy to Clipboard";
+		}
+		
+		function sleep(milliseconds) {
+			var start = new Date().getTime();
+			for (var i = 0; i < 1e7; i++) {
+				if ((new Date().getTime() - start) > milliseconds){
+				break;
+				}
+			}
+		}
+	</script>
+	
 </body>
 
 </html>
