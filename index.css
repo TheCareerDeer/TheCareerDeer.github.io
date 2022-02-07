@@ -39,13 +39,6 @@ a:visited {
 	opacity: 1.0;
 }
 
-@media (max-width : 320px) {
-    a { 
-		font-size: 1vmin;
-	}
-}
-
-
 
 /*********************** Navigation bar ***********************/
 .navBar {
