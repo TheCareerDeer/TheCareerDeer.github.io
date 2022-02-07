@@ -78,12 +78,16 @@
 	</div>
 	
 	<script>
+		var firstTime = true;
+	
 		function copyEmail() {
-		  var copyText = "GarrettMHaines@gmail.com";
-		  navigator.clipboard.writeText(copyText);
+		firstTime = true;
+
+			var copyText = "GarrettMHaines@gmail.com";
+			navigator.clipboard.writeText(copyText);
 		  
-		  var tooltip = document.getElementById("myTooltip");
-		  tooltip.innerHTML = "Copied: " + copyText;
+			var tooltip = document.getElementById("myTooltip");
+			tooltip.innerHTML = "Copied: " + copyText;
 		}
 
 		function copiedEmail() {
@@ -91,8 +95,12 @@
 		}
 		
 		function resetEmail() {
+			if(!firstTime) {
+				sleep(300);
+			}
 		  var tooltip = document.getElementById("myTooltip");
 		  tooltip.innerHTML = "Copy to Clipboard";
+		  firstTime = false;
 		}
 		
 		function sleep(milliseconds) {
