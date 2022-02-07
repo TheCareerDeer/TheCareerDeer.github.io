@@ -51,10 +51,10 @@
 							<a href="https://github.com/GarrettHaines">GitHub</a>&nbsp;&nbsp; • &nbsp;
 							
 							<div class="tooltip">
-								<span style="font-size: 1.05vmin; font-weight: none; color: #B65300;" onclick="copyEmail()" onmouseover="resetEmail()" onmouseout="copiedEmail()">
+								<a style="font-size: 1.05vmin; font-weight: none; color: #B65300;" onclick="copyEmail()">
 									<span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
 								Email
-								</span>
+								</a>
 							</div>
 							
 						</span>
@@ -87,28 +87,6 @@
 		  
 			var tooltip = document.getElementById("myTooltip");
 			tooltip.innerHTML = "Copied: " + copyText;
-		}
-
-		function copiedEmail() {
-			sleep(300);
-		}
-		
-		function resetEmail() {
-			if(!firstTime) {
-				sleep(300);
-			}
-		  var tooltip = document.getElementById("myTooltip");
-		  tooltip.innerHTML = "Copy to Clipboard";
-		  firstTime = false;
-		}
-		
-		function sleep(milliseconds) {
-			var start = new Date().getTime();
-			for (var i = 0; i < 1e7; i++) {
-				if ((new Date().getTime() - start) > milliseconds){
-				break;
-				}
-			}
 		}
 	</script>
 	
