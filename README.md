@@ -1,3 +1,2 @@
 # The Career Deer
-Eastern Michigan University Senior Software Project
-# Moe Alaouie, Deena Chraim, and Garrett Haines
+Created by Moe Alaouie, Deena Chraim, and Garrett Haines at Eastern Michigan University for Dr. Bishu Panja's Winter 2022 Senior Software Project.
