@@ -78,7 +78,9 @@ function printAd() {
 	postElement.classList.add('block-post');
 	
 	// Google AdSense place ad here
-	postElement.innerHTML = ``;
+	postElement.innerHTML = `<div class="user-info">
+	Thank you for using The Career Deer! You rock!
+	</div>`;
 	
 	container.appendChild(postElement);
 }
