@@ -27,7 +27,7 @@ function showLoading() {
 
 async function getPost() {
 	var x = getRandomInt(0,15)
-	if(x > 12) {
+	if(x < 12) {
 		const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
 		const postData = await postResponse.json();
 		
