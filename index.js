@@ -27,7 +27,7 @@ function showLoading() {
 
 async function getPost() {
 	var x = getRandomInt(0,15)
-	if(x < 12) {
+	if(x < 13) {
 		const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
 		const postData = await postResponse.json();
 		
@@ -38,7 +38,7 @@ async function getPost() {
 		
 		addDataToDOM(data);
 	}
-	else if(x == 12) {
+	else if(x == 13) {
 		getInspo();
 	}
 	else {
