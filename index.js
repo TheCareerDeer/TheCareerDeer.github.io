@@ -40,7 +40,8 @@ async function getPost() {
 		getInspo();
 	}
 	else {
-		printAd();
+		// printAd();
+		getPost();
 	}
 }
 

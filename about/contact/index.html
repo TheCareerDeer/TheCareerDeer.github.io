@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 	<title>The Career Deer - Contact Us</title>
-	<meta name="description" content="A unique job-hunting experience. Created by Moe Alaouie, Deena Chraim, and Garrett Haines.">
-	<meta name="keywords" content="the career deer, career, deer, job, job hunting, job board, listings, postings, jobs">
 	
-	<!-- Homepage stylesheet -->
+	<meta charset="utf-8">
+	<meta name="description" content="A unique job-hunting experience. Created by Moe Alaouie, Deena Chraim, and Garrett Haines." />
+	<meta name="keywords" content="thecareerdeer, the career deer, career, deer, job, job hunting, job board, listings, postings, jobs, moe alaouie, deena chraim, garrett haines" />
+	
+	<!-- Base stylesheet for all pages -->
 	<link rel="stylesheet" type="text/css" href="../../index.css" />
 	
-	<!-- Site icon -->
+	<!-- Site logo browser icon (.ico) -->
 	<link rel="icon" href="../../images/logo/icon.ico">
 </head>
 
@@ -19,18 +20,22 @@
 <body>
 	<!-- Navigation bar -->
 	<div class="navBar">
+	
+		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../../">
-		<img src="../../images/logo/small.png">
-		<div class="navBarInnerLeft"><div id="small">THE<br></div>CAREER DEER</div>
+			<img src="../../images/logo/small.png">
+			<div class="navBarInnerLeft"><div id="small">THE<br></div>CAREER DEER</div>
 		</a>
 		
-		
+		<!-- Right portion of navigation (page links) -->
 		<div class="navBarInnerRight">
 			<a href="../../login/">LOGIN</a>
 			<a href="../../create-account/">CREATE &nbsp;ACCOUNT</a>
 			<a href="../">ABOUT</a>
 		</div>
-	</div><br><br><br><br><br><br>
+		
+	</div>
+	<br><br><br><br><br><br>
 	
 	
 	<!-- Block feed -->
@@ -44,14 +49,19 @@
 				If you are experiencing a technical difficulty or error on our site, please visit our <a style="font-size: 16px;" href="https://github.com/TheCareerDeer/TheCareerDeer.github.io/issues">GitHub issue tracker</a>.
 			</p>
 			
+			
+			<!-- First author block -->
 			<div style="margin-top: 25px;">
 				<p class="text">
 					<h3 class="subtitle">Garrett Haines
 						<span style="font-weight: none; font-size: 13px;">
 							&nbsp;&nbsp;&nbsp;
+							
+							<!-- Links -->
 							<a href="https://www.linkedin.com/in/garrett-haines-210aa51a1/">LinkedIn</a>&nbsp;&nbsp; • &nbsp;
 							<a href="https://github.com/GarrettHaines">GitHub</a>&nbsp;&nbsp; • &nbsp;
 							
+							<!-- Copy email feature -->
 							<div class="tooltip">
 								<a style="font-weight: none; color: #B65300;" onclick="copyEmail()">
 									<span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
@@ -78,12 +88,9 @@
 		</div>
 	</div>
 	
+	<!-- Copy email address feature -->
 	<script>
-		var firstTime = true;
-	
 		function copyEmail() {
-		firstTime = true;
-
 			var copyText = "GarrettMHaines@gmail.com";
 			navigator.clipboard.writeText(copyText);
 		  

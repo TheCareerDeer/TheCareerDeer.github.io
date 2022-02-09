@@ -50,6 +50,7 @@ a:visited {
 	opacity: 1.0;
 }
 
+/** Screen size adjustments for various platforms (desktop/mobile) **/
 @media (min-width: 858px) {
     a {
         font-size: 13px;

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 	<title>The Career Deer - Login</title>
-	<meta name="description" content="A unique job-hunting experience. Created by Moe Alaouie, Deena Chraim, and Garrett Haines.">
-	<meta name="keywords" content="the career deer, career, deer, job, job hunting, job board, listings, postings, jobs">
 	
-	<!-- Homepage stylesheet -->
+	<meta charset="utf-8">
+	<meta name="description" content="A unique job-hunting experience. Created by Moe Alaouie, Deena Chraim, and Garrett Haines." />
+	<meta name="keywords" content="thecareerdeer, the career deer, career, deer, job, job hunting, job board, listings, postings, jobs, moe alaouie, deena chraim, garrett haines" />
+	
+	<!-- Base stylesheet for all pages -->
 	<link rel="stylesheet" type="text/css" href="../index.css" />
 	
-	<!-- Site icon -->
+	<!-- Site logo browser icon (.ico) -->
 	<link rel="icon" href="../images/logo/icon.ico">
 </head>
 
@@ -19,47 +20,56 @@
 <body>
 	<!-- Navigation bar -->
 	<div class="navBar">
+	
+		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../">
-		<img src="../images/logo/small.png">
-		<div class="navBarInnerLeft"><div id="small">THE<br></div>CAREER DEER</div>
+			<img src="../images/logo/small.png">
+			<div class="navBarInnerLeft"><div id="small">THE<br></div>CAREER DEER</div>
 		</a>
 		
-		
+		<!-- Right portion of navigation (page links) -->
 		<div class="navBarInnerRight">
 			<a href="./">LOGIN</a>
 			<a href="../create-account/">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
 		</div>
-	</div><br><br><br><br><br><br>
+		
+	</div>
+	<br><br><br><br><br><br>
 	
 	
 	<!-- Block feed -->
 	<div class="container" id="container">
 		<div class="block-content">
-			
-<form action="/action_page.php" method="post">
+			<form action="/action_page.php" method="post">
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-	<br><br>
+				<!-- Username section -->
+				<label for="uname"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" required>
+				<br><br>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-	<br><br>
-        
-		<button class="button-login" type="submit" style="float: left;">RESET PASSWORD</button>
-		<button class="button-login" style="width: 60%; margin-left: 1%; float: right;" type="submit">LOGIN</button>
-		
-		<!--
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember Me
-    </label>  
-    <span class="psw">Forgot <a href="#">password?</a></span> -->
-</form>
-			
+				<!-- Password section -->
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+				<br><br>
+					
+				<!-- Reset password and login buttons -->
+				<button class="button-login" type="submit" style="float: left;">RESET PASSWORD</button>
+				<button class="button-login" style="width: 60%; margin-left: 1%; float: right;" type="submit">LOGIN</button>
+					
+				<!--
+					<label>
+					  <input type="checkbox" checked="checked" name="remember"> Remember Me
+					</label>  
+					<span class="psw">Forgot <a href="#">password?</a></span>
+				-->
+				
+			</form>
 			<br><br><br>
+			
 		</div>
 	</div>
+	
+	
 </body>
-
 </html>
