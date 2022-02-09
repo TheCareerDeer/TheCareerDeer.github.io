@@ -77,7 +77,7 @@ function printAd() {
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	
-	// Google AdSense place ad here
+	// Google AdSense please place ad here
 	postElement.innerHTML = `
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5871217598891203"
      crossorigin="anonymous"></script>
