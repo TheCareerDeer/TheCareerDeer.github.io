@@ -26,7 +26,8 @@ function showLoading() {
 }
 
 async function getPost() {
-	if(getRandomInt(0,13) != 5) {
+	var x = getRandomInt(0,15)
+	if(x > 12) {
 		const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
 		const postData = await postResponse.json();
 		
@@ -37,8 +38,11 @@ async function getPost() {
 		
 		addDataToDOM(data);
 	}
-	else {
+	else if(x == 12) {
 		getInspo();
+	}
+	else {
+		printAd();
 	}
 }
 
@@ -69,6 +73,18 @@ function getInspo() {
 	container.appendChild(postElement);
 }
 
+function printAd() {
+	var x = getRandomInt(0,2);
+	console.log(x);
+	const postElement = document.createElement('div');
+	postElement.classList.add('block-post');
+	
+	// Google AdSense place ad here
+	postElement.innerHTML = ``;
+	
+	container.appendChild(postElement);
+}
+
 function getRandomNr() {
 	return Math.floor(Math.random() * 100) + 1;
 }
@@ -76,7 +92,7 @@ function getRandomNr() {
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
 function addDataToDOM(data) {
