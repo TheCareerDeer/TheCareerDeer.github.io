@@ -4,9 +4,7 @@ const loading = document.getElementsByName('loading');
 getPost();
 getPost();
 getPost();
-
-
-
+getPost();
 getPost();
 
 window.addEventListener('scroll', () => {
