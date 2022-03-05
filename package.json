@@ -1,0 +1,28 @@
+{
+  "name": "thecareerdeer.github.io",
+  "version": "1.0.0",
+  "description": "Created by Moe Alaouie, Deena Chraim, and Garrett Haines at Eastern Michigan University for Dr. Bishu Panja's Winter 2022 Senior Software Project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheCareerDeer/TheCareerDeer.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheCareerDeer/TheCareerDeer.github.io/issues"
+  },
+  "homepage": "https://github.com/TheCareerDeer/TheCareerDeer.github.io#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "firebase": "^9.6.8"
+  }
+}
