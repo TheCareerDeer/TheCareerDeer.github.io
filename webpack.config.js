@@ -9,6 +9,8 @@ module.exports = {
 	},
 	watch: true,
 	rules: [ {
+		test: /\.js$/,
+		enforce: 'pre',
 		use: ['source-map-loader']
 	} ]
 }
