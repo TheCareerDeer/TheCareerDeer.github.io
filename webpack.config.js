@@ -7,5 +7,8 @@ module.exports = {
 		path: path.resolve(__dirname, "."),
 		filename: "bundle.js"
 	},
-	watch: true
+	watch: true,
+	rules: [ {
+		use: ['source-map-loader']
+	} ]
 }
