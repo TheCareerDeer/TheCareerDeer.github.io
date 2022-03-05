@@ -48,7 +48,7 @@ eval("(function (global, factory) {\n   true ? factory(exports) :\n  0;\n}(this,
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.esm.js\");\n\r\n\r\n// For Firebase JS SDK v7.20.0 and later, measurementId is optional.....\r\nconst firebaseConfig = {\r\n  apiKey: \"AIzaSyDWnA7vja3VhtgZbt3tnCzdKcdWl3zJA3k\",\r\n  authDomain: \"thecareerdeer.firebaseapp.com\",\r\n  projectId: \"thecareerdeer\",\r\n  storageBucket: \"thecareerdeer.appspot.com\",\r\n  messagingSenderId: \"778028835481\",\r\n  appId: \"1:778028835481:web:07af86c8b20b619c040e08\"\r\n};\r\n\r\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig)\n\n//# sourceURL=webpack://thecareerdeer.github.io/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.esm.js\");\n\r\n\r\n// For Firebase JS SDK v7.20.0 and later, measurementId is optional...\r\nconst firebaseConfig = {\r\n  apiKey: \"AIzaSyDWnA7vja3VhtgZbt3tnCzdKcdWl3zJA3k\",\r\n  authDomain: \"thecareerdeer.firebaseapp.com\",\r\n  projectId: \"thecareerdeer\",\r\n  storageBucket: \"thecareerdeer.appspot.com\",\r\n  messagingSenderId: \"778028835481\",\r\n  appId: \"1:778028835481:web:07af86c8b20b619c040e08\"\r\n};\r\n\r\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig)\n\n//# sourceURL=webpack://thecareerdeer.github.io/./src/index.js?");
 
 /***/ }),
 

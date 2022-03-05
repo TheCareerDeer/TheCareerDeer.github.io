@@ -8,7 +8,11 @@ module.exports = {
 		filename: "bundle.js"
 	},
 	watch: true,
-	rules: [ {
+},
+
+module: {
+	rules: [
+	{
 		test: /\.js$/,
 		enforce: 'pre',
 		use: ['source-map-loader']
