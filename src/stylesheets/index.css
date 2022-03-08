@@ -234,7 +234,15 @@ a:visited {
 .title {
 	margin: 0;
 	color: #333;
+}
+
+
+/* Block post titles */
+.page-title {
+	margin: 0;
+	color: #333;
 	text-align: center;
+	letter-spacing: -1px;
 }
 
 /* Block post titles */
