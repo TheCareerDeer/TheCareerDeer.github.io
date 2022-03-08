@@ -28,6 +28,7 @@ onAuthStateChanged(auth, (user) => {
   if(user) {
 	  updateNavBar();
 	  console.log(user);
+	  testFirestore();
   }
   else {
 	  console.log("You are not signed in.");
@@ -37,17 +38,19 @@ onAuthStateChanged(auth, (user) => {
 })
 
 
-const colCities = collection(db, 'cities')
-getDocs(colCities)
-	.then((snapshot) => {
-		let cities = []
-		snapshot.docs.forEach((doc) => {
-			cities.push({ ...doc.data(), id: doc.id })
-		})
-		console.log(cities)
-})	.catch(err => {
-		console.log(err.message)
-});
+function testFirestore() {
+	const colCities = collection(db, 'cities')
+	getDocs(colCities)
+		.then((snapshot) => {
+			let cities = []
+			snapshot.docs.forEach((doc) => {
+				cities.push({ ...doc.data(), id: doc.id })
+			})
+			console.log(cities)
+	})	.catch(err => {
+			console.log(err.message)
+	});
+}
 
 
 function checkLogin() {
