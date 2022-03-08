@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
   else {
 	  console.log("You are not signed in.");
 	  checkRegister();
+	  checkLogin();
   }
 })
 
