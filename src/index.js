@@ -65,7 +65,7 @@ function checkLogin() {
 				.then((userCredential) => {
 					// Signed in 
 					const user = userCredential.user;
-					location.href = '../';
+					location.href = 'https://thecareerdeer.com/';
 				  })
 				  .catch((error) => {
 					const errorCode = error.code;
