@@ -28,7 +28,7 @@
 		</a>
 		
 		<!-- Right portion of navigation (page links) -->
-		<div class="navBarInnerRight">
+		<div class="navBarInnerRight" id="nav-bar">
 			<a href="../login/">LOGIN</a>
 			<a href="./">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
@@ -45,27 +45,33 @@
 			<h2 class="title">Create a New Account</h2>
 			<br>
 			
-			<form action="/action_page.php" method="post">
-
-				<!-- Username section -->
-				<label for="uname"><b>Username</b></label>
-				<input type="text" placeholder="Enter a Username" name="uname" required>
-				<br><br>
+			<form id="register-form">
 
 				<!-- Email address section -->
-				<label for="email"><b>Email Address</b></label>
-				<input type="password" placeholder="Enter an Email Address" name="email" required>
-				<br><br>
+				<label id="label-email" for="email"><b>Email Address</b></label>
+				<br>
+				<span id="caption-email" class="caption">Please enter a valid email address.</span>
+				
+				<div id="box1">
+					<input type="text" placeholder="Example: Jimmy@gmail.com" id="email" name="email" required>
+				</div>
+				<br>
+				
+				<!-- Username section -->
+				<label id="label-username" for="username"><b>Username</b></label>
+				<br>
+				<span id="caption-username" class="caption">Please enter a unique username.</span>
+				
+				<div id="box2">
+					<input type="text" placeholder="Example: Jimmy" id="username" name="username" required>
+				</div>
+				<br>
 				
 				<!-- Continue creating a new account button -->
-				<button class="button-login" style="width: 100%; height: 55px;" type="submit">CONTINUE</button>
-					
-				<!--
-					<label>
-					  <input type="checkbox" checked="checked" name="remember"> Remember Me
-					</label>  
-					<span class="psw">Forgot <a href="#">password?</a></span>
-				-->
+				<span id="button1">
+					<button id="continueButton" class="button-login" style="width: 100%; height: 55px;" type="button">CONTINUE</button>
+				</span>
+				<br>
 				
 			</form>
 			
