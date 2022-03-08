@@ -57,15 +57,18 @@ function checkLogin() {
 		
 		loginForm.addEventListener('submit', (e) => {
 			e.preventDefault();
+			console.log(1);
 			var success = true;
 			var identification = loginForm['identification'].value
 			var password = loginForm['password'].value;
+			console.log(2);
 			
 			signInWithEmailAndPassword(auth, identification, password)
 				.then((userCredential) => {
 					// Signed in 
-					const user = userCredential.user;
-					location.href = 'https://thecareerdeer.com/';
+					var user = userCredential.user;
+					console.log(3);
+					//location.href = 'https://thecareerdeer.com/';
 				  })
 				  .catch((error) => {
 					const errorCode = error.code;
