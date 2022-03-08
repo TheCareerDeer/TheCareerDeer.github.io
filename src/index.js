@@ -50,7 +50,37 @@ getDocs(colCities)
 
 
 function checkLogin() {
-	
+	// Login page auth methods
+	try {
+		const loginForm = document.querySelector("#login-form");
+		const loginButton = document.getElementById("login-button");
+		
+		loginForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			var success = true;
+			var identification = loginForm['identification'].value
+			var password = loginForm['password'].value;
+			
+			signInWithEmailAndPassword(auth, identification, password)
+				.then((userCredential) => {
+					// Signed in 
+					const user = userCredential.user;
+					location.href = '../';
+				  })
+				  .catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+					success = false;
+				  });		
+
+			if(success) {
+				console.log("You have logged in successfully.");
+			}
+		})
+
+
+	}
+	catch { }
 }
 
 function checkRegister() {
