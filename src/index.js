@@ -192,7 +192,7 @@ function updateNavBar() {
 
 function updateButtonAbout() {
 	try {
-		//const discard = document.querySelector("page-about");
-		//document.getElementById("button-about").style.opacity = 0.5;
+		const discard = document.querySelector("page-about");
+		document.getElementById("button-about").style.opacity = 0.5;
 	} catch { }
 }
