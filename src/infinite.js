@@ -26,7 +26,7 @@ function showLoading() {
 async function getPost() {
 	var x = getRandomInt(0,15)
 	if(x < 13) {
-		const postResponse = await fetch(`../p00001.json`);
+		const postResponse = await fetch(`https://thecareerdeer.com/p00001.json`);
 		const postData = await postResponse.json();
 		
 		const userResponse = await fetch('https://randomuser.me/api');
