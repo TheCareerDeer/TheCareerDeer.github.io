@@ -26,7 +26,7 @@ function showLoading() {
 async function getPost() {
 	var x = getRandomInt(0,15)
 	if(x < 13) {
-		const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${getRandomNr()}`);
+		const postResponse = await fetch(`../p00001.json`);
 		const postData = await postResponse.json();
 		
 		const userResponse = await fetch('https://randomuser.me/api');
@@ -101,7 +101,8 @@ function addDataToDOM(data) {
 	postElement.classList.add('block-post');
 	postElement.innerHTML = `
 		<h2 class="title">${data.post.title}</h2>
-		<p class="text">${data.post.body}</p>
+		<p class="text">${data.post.company_name}</p>
+		<p class="text">${data.post.category}</p>
 		<div class="user-info">
 			<img src="${data.user.picture.large}" alt="${data.user.name.first}" />
 			<span>${data.user.name.first} ${data.user.name.last}</span>
