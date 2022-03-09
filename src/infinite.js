@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
 const loading = document.getElementsByName('loading');
+var count = 0;
 
 getPost();
 getPost();
@@ -26,15 +27,16 @@ function showLoading() {
 async function getPost() {
 	var x = getRandomInt(0,15)
 	if(x < 13) {
-		const postResponse = await fetch(`https://remotive.io/api/remote-jobs?limit=15`);
+		const postResponse = await fetch(`https://remotive.io/api/remote-jobs`);
 		const postData = await postResponse.json();
 		
 		const userResponse = await fetch('https://randomuser.me/api');
 		const userData = await userResponse.json();
 		
-		const data = { post: postData.jobs[x], user: userData.results[0] };
+		const data = { post: postData.jobs[count], user: userData.results[0] };
 		
 		addDataToDOM(data);
+		count++;
 	}
 	else if(x == 13) {
 		getInspo();
@@ -104,8 +106,8 @@ function addDataToDOM(data) {
 		<p class="text">${data.post.company_name}</p>
 		<p class="text">${data.post.category}</p>
 		<div class="user-info">
-			<img src="${data.user.picture.large}" alt="${data.user.name.first}" />
-			<span>${data.user.name.first} ${data.user.name.last}</span>
+			<img src="${data.post.company_logo}" alt="${data.post.company_name}" />
+			<span>${data.post.company_name}</span>
 		</div>
 	`;
 	container.appendChild(postElement);
