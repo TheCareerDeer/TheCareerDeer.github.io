@@ -98,20 +98,80 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
+function savePost(i) {
+	console.log(i);
+	selectedPost = document.getElementById("save-button-" + i);
+	selectedPost.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
+	selectedPost.style.backgroundSize = "45px 45px";
+}
+
+function getDate(dateIn) {
+	var dateOut = "";
+	
+	if(dateIn.charAt(5) === '0') {
+		if(dateIn.charAt(6) == '1')
+			dateOut = "January ";
+		else if(dateIn.charAt(6) == '2')
+			dateOut = "February ";
+		else if(dateIn.charAt(6) === '3') {
+			dateOut = "March ";
+			console.log("hey");
+		}
+		else if(dateIn.charAt(6) == '4')
+			dateOut = "April ";
+		else if(dateIn.charAt(6) == '5')
+			dateOut = "May ";
+		else if(dateIn.charAt(6) == '6')
+			dateOut = "June ";
+		else if(dateIn.charAt(6) == '7')
+			dateOut = "July ";
+		else if(dateIn.charAt(6) == '8')
+			dateOut = "August ";
+		else if(dateIn.charAt(6) == '9')
+			dateOut = "September ";
+	}
+	else {
+		if(dateIn.charAt(6) == '0')
+			dateOut = "October ";
+		else if(dateIn.charAt(6) == '1')
+			dateOut = "November ";
+		else if(dateIn.charAt(6) == '2')
+			dateOut = "December ";
+	}
+	
+	if(dateIn.charAt(8) == '0') {
+		dateOut = dateOut + (dateIn.charAt(9));
+	}
+	else {
+		dateOut = dateOut + (dateIn.charAt(8) + dateIn.charAt(9));
+	}
+	
+	dateOut = dateOut + ", " + dateIn.charAt(0) + dateIn.charAt(1) + dateIn.charAt(2) + dateIn.charAt(3);
+	
+	return dateOut;
+}
+
 function addDataToDOM(data) {
 	if(data.post.category == 'All others')
 		data.post.category = 'Other';
+	
+	var dateIn = data.post.publication_date;
+	var dateOut = getDate(dateIn);
+	
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	postElement.innerHTML = `
 		<div class="user-info">
+		<a href="${data.post.url}">
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
-			<img style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -2px; margin-right: -10px;" src="https://thecareerdeer.com/src/images/save-unchecked.png" />
+			</a>
+			<input type="button" style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -2px; margin-right: -10px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 45px 45px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -10px"><a href="${data.post.url}">${data.post.title}</a></h2>
+		<h2 class="title" style="margin-top: -16px"><a href="${data.post.url}">${data.post.title}</a></h2>
 		<p class="text" style="margin-top: 5px; font-size: 14px;">in ${data.post.category} (Remote)</p>
 		<div class="user-info">
+			<div style="float: left; display: inline-block; margin-top: 5px; font-size: 14px;">` + dateOut + `</div>
 			<div style="float: right; display: inline-block; margin-top: 3px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		
