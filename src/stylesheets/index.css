@@ -32,7 +32,7 @@ body {
 }
 
 a {
-	color: #B65300;
+	color: #662f00;
 	opacity: 1.0;
 	transition: .5s;
   text-size-adjust: none;
@@ -236,6 +236,16 @@ a:visited {
 	color: #333;
 }
 
+.title a {
+	opacity: 1;
+	color: #333;
+	font-size: 1em;
+	transition: .4s;
+}
+
+.title a:hover {
+	opacity: 0.5;
+}
 
 /* Block post titles */
 .page-title {
@@ -300,8 +310,12 @@ a:visited {
 
 /* User info */
 .user-info {
-	display: flex;
+	display: inline-block;
 	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+	margin-left: -2px;
 }
 
 /* User info */
@@ -309,12 +323,19 @@ a:visited {
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;
+	-webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); 
+	box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025);
 }
 
 /* User info */
 .user-info span {
 	font-size: 13px;
 	margin-left: 10px;
+	margin-top: -20px;
+}
+
+.provider {
+	float: right;
 }
 
 /* Input boxes (login, create account) */

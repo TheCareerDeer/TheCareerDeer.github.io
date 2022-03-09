@@ -99,16 +99,24 @@ function getRandomInt(min, max) {
 }
 
 function addDataToDOM(data) {
+	if(data.post.category == 'All others')
+		data.post.category = 'Other';
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	postElement.innerHTML = `
-		<h2 class="title">${data.post.title}</h2>
-		<p class="text">${data.post.company_name}</p>
-		<p class="text">${data.post.category}</p>
 		<div class="user-info">
-			<img src="${data.post.company_logo}" alt="${data.post.company_name}" />
-			<span>${data.post.company_name}</span>
+			<img style="display: inline-block; float: left;" src="${data.post.company_logo}" alt="${data.post.company_name}" />
+			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
+			<img style="display: inline-block; float: right; height: 30px; width: 30px;" src="https://thecareerdeer.com/src/images/save-unchecked.png" />
 		</div>
+		<h2 class="title"><a href="${data.post.url}">${data.post.title}</a></h2>
+		<p class="text" style="margin-top: 5px; font-size: 14px;">in ${data.post.category} (Remote)</p>
+		<div class="user-info">
+			<img style="display: inline-block; float: left;" src="${data.post.company_logo}" alt="${data.post.company_name}" />
+			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
+			<div style="float: right; display: inline-block; margin-top: 3px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
+		</div>
+		
 	`;
 	container.appendChild(postElement);
 	
