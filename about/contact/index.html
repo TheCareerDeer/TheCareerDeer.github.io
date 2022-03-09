@@ -45,26 +45,46 @@
 			<h2 class="title">Contact Us</h2>
 
 			<p class="text">
-				Our team is a group of incoming computer science graduates. Any information or inquiries regarding career opportunities are welcome and greatly appreciated!<br><br>
-				If you are experiencing a technical difficulty or error on our site, please visit our <a style="font-size: 16px;" href="https://github.com/TheCareerDeer/TheCareerDeer.github.io/issues">GitHub issue tracker</a>.
+				Our team is a group of incoming computer science graduates. Any inquiries or information regarding software engineering opportunities are welcome and greatly appreciated!<br><br>
+				If you are experiencing a technical difficulty or encounter an error, please visit our <a style="font-size: 16px;" href="https://github.com/TheCareerDeer/TheCareerDeer.github.io/issues">GitHub issue tracker</a>.
 			</p>
 			
 			
 			<!-- First author block -->
-			<div style="margin-top: 25px;">
+			<div style="margin-top: 27px;">
 				<p class="text">
-					<h3 class="subtitle">Garrett Haines
+					<h3 class="subtitle">Deena Chraim
 						<span style="font-weight: none; font-size: 13px;">
 							&nbsp;&nbsp;&nbsp;
 							
-							<!-- Links -->
-							<a href="https://www.linkedin.com/in/garrett-haines-210aa51a1/">LinkedIn</a>&nbsp;&nbsp; • &nbsp;
-							<a href="https://github.com/GarrettHaines">GitHub</a>&nbsp;&nbsp; • &nbsp;
+							<!-- Copy email feature -->
+							<div class="button-copy">
+								<a style="font-weight: none; color: #B65300;" onclick="copyEmail(0)">
+									<span class="button-copy-text" id="button0">COPY TO CLIPBOARD</span>
+								Email
+								</a>
+							</div>
+							
+						</span>
+					</h3>
+					
+					<span style="font-size: 14px">
+						Ann Arbor, MI &nbsp;—&nbsp; B.S., Eastern Michigan University (May 2022)
+					</span><br>
+				</p>
+			</div>
+			
+			
+			<div style="margin-top: 27px;">
+				<p class="text">
+					<h3 class="subtitle">Moe Alaouie
+						<span style="font-weight: none; font-size: 13px;">
+							&nbsp;&nbsp;&nbsp;
 							
 							<!-- Copy email feature -->
-							<div class="tooltip">
-								<a style="font-weight: none; color: #B65300;" onclick="copyEmail()">
-									<span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
+							<div class="button-copy">
+								<a style="font-weight: none; color: #B65300;" onclick="copyEmail(1)">
+									<span class="button-copy-text" id="button1">COPY TO CLIPBOARD</span>
 								Email
 								</a>
 							</div>
@@ -75,9 +95,35 @@
 					<span style="font-size: 14px">
 						Ypsilanti, MI &nbsp;—&nbsp; B.S., Eastern Michigan University (May 2022)
 					</span><br>
+				</p>
+			</div>
+			
+			<div style="margin-top: 25px;">
+				<p class="text">
+					<h3 class="subtitle">Garrett Haines
+						<span style="font-weight: none; font-size: 13px;">
+							&nbsp;&nbsp;&nbsp;
+							
+							<!-- Links -->
+							<a href="https://github.com/GarrettHaines">GitHub</a>&nbsp;&nbsp; • &nbsp;
+							<a href="https://www.linkedin.com/in/garrett-haines-210aa51a1/">LinkedIn</a>&nbsp;&nbsp; • &nbsp;
+							
+							<!-- Copy email feature -->
+							<div class="button-copy">
+								<a style="font-weight: none; color: #B65300;" onclick="copyEmail(2)">
+									<span class="button-copy-text" id="button2">COPY TO CLIPBOARD</span>
+								Email
+								</a>
+							</div>
+							
+						</span>
+					</h3>
 					
+					<span style="font-size: 14px">
+						Ypsilanti, MI &nbsp;—&nbsp; B.S., Eastern Michigan University (May 2022)
+					</span><br>
 					<div style="margin-top: 10px">
-					Hello! I am a computer science student graduating in the spring of 2022.
+					Hello!
 					I am interested in software engineering, web development, database management, cloud computing,
 					and many other facets of information technology.
 					</div>
@@ -90,12 +136,35 @@
 	
 	<!-- Copy email address feature -->
 	<script>
-		function copyEmail() {
-			var copyText = "GarrettMHaines@gmail.com";
-			navigator.clipboard.writeText(copyText);
-		  
-			var tooltip = document.getElementById("myTooltip");
-			tooltip.innerHTML = "Copied: " + copyText;
+		function copyEmail(i) {
+		console.log("FUCK");
+			if(i == 0) {
+				var copyText = "dchraim@emich.edu";
+				navigator.clipboard.writeText(copyText);
+			
+				var button0 = document.getElementById("button0");
+				button0.style.width = "165px";
+				button0.style.marginLeft = "-87px";
+				button0.innerHTML = "COPIED&nbsp —&nbsp " + copyText;
+			}
+			else if(i == 1) {
+				var copyText = "malaouie@emich.edu";
+				navigator.clipboard.writeText(copyText);
+			
+				var button1 = document.getElementById("button1");
+				button1.style.width = "170px";
+				button1.style.marginLeft = "-89px";
+				button1.innerHTML = "COPIED&nbsp —&nbsp " + copyText;
+			}
+			else if(i == 2) {
+				var copyText = "GarrettMHaines@gmail.com";
+				navigator.clipboard.writeText(copyText);
+			
+				var button2 = document.getElementById("button2");
+				button2.style.width = "205px";
+				button2.style.marginLeft = "-106px";
+				button2.innerHTML = "COPIED&nbsp —&nbsp " + copyText;
+			}
 		}
 	</script>
 	
