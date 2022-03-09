@@ -105,15 +105,13 @@ function addDataToDOM(data) {
 	postElement.classList.add('block-post');
 	postElement.innerHTML = `
 		<div class="user-info">
-			<img style="display: inline-block; float: left;" src="${data.post.company_logo}" alt="${data.post.company_name}" />
+			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
-			<img style="display: inline-block; float: right; height: 30px; width: 30px;" src="https://thecareerdeer.com/src/images/save-unchecked.png" />
+			<img style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -2px; margin-right: -10px;" src="https://thecareerdeer.com/src/images/save-unchecked.png" />
 		</div>
-		<h2 class="title"><a href="${data.post.url}">${data.post.title}</a></h2>
+		<h2 class="title" style="margin-top: -10px"><a href="${data.post.url}">${data.post.title}</a></h2>
 		<p class="text" style="margin-top: 5px; font-size: 14px;">in ${data.post.category} (Remote)</p>
 		<div class="user-info">
-			<img style="display: inline-block; float: left;" src="${data.post.company_logo}" alt="${data.post.company_name}" />
-			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
 			<div style="float: right; display: inline-block; margin-top: 3px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		
