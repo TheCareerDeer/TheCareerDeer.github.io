@@ -26,13 +26,13 @@ function showLoading() {
 async function getPost() {
 	var x = getRandomInt(0,15)
 	if(x < 13) {
-		const postResponse = await fetch(`https://remotive.io/api/remote-jobs?limit=20`);
+		const postResponse = await fetch(`https://remotive.io/api/remote-jobs?limit=15`);
 		const postData = await postResponse.json();
 		
 		const userResponse = await fetch('https://randomuser.me/api');
 		const userData = await userResponse.json();
 		
-		const data = { post: postData, user: userData.results[0] };
+		const data = { post: postData.jobs[x], user: userData.results[0] };
 		
 		addDataToDOM(data);
 	}
