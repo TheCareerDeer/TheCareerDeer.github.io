@@ -47,7 +47,6 @@ async function getPost() {
 
 function getInspo() {
 	var x = getRandomInt(0,2);
-	console.log(x);
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	

@@ -236,6 +236,15 @@ a:visited {
 	color: #333;
 }
 
+
+/* Block post titles */
+.page-title {
+	margin: 0;
+	color: #333;
+	text-align: center;
+	letter-spacing: -1px;
+}
+
 /* Block post titles */
 .subtitle {
 	margin: 0;
@@ -246,6 +255,12 @@ a:visited {
 .text {
 	color: #333;
 	margin: 20px 0;
+}
+
+/* Block post body text */
+.caption {
+	margin: 20px 0;
+	font-size: 12px;
 }
 
 /* Container for multiple buttons */

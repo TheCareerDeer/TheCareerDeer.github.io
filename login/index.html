@@ -28,7 +28,7 @@
 		</a>
 		
 		<!-- Right portion of navigation (page links) -->
-		<div class="navBarInnerRight">
+		<div class="navBarInnerRight" id="nav-bar">
 			<a href="./">LOGIN</a>
 			<a href="../register/">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
@@ -41,35 +41,40 @@
 	<!-- Block feed -->
 	<div class="container" id="container">
 		<div class="block-content">
-			<form action="/action_page.php" method="post">
+			<form id="login-form" method="post">
 
 				<!-- Username section -->
-				<label for="uname"><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="uname" required>
+				<label for="uname"><b style="color: #020011; font-size: 17px;">Email or Username</b></label>
+				<input type="text" placeholder="Enter your email or username." name="identification" required>
 				<br><br>
 
-				<!-- Password section -->
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" required>
+				<!-- Email address section -->
+				<label for="email"><b style="color: #020011; font-size: 17px;">Password</b></label>
+				<input type="password" placeholder="Enter your password." name="password" required>
 				<br><br>
-					
-				<!-- Reset password and login buttons -->
-				<button class="button-login" type="submit" style="float: left;">RESET PASSWORD</button>
-				<button class="button-login" style="width: 60%; margin-left: 1%; float: right;" type="submit">LOGIN</button>
-					
-				<!--
-					<label>
-					  <input type="checkbox" checked="checked" name="remember"> Remember Me
-					</label>  
-					<span class="psw">Forgot <a href="#">password?</a></span>
-				-->
+				
+				<div style="width: 100%; display: inline-block; float: right;">
+					<span style="float: left;">
+						<input type="checkbox" id="checkbox2" class="css-checkbox" />
+						<label for="checkbox2" name="checkbox2_lbl" class="css-label chrome-style" style="color: #020011; margin-top: -4px;">Remember Me</label>
+					</span>
+					<span style="float: right; margin-top: -3px;">
+						<a style="font-size: 15px; color: #333;" href="forgot/">I forgot my login information...</a>
+					</span>
+				</div>
+				<br><br>
+				
+				<!-- Continue creating a new account button -->
+				<button id="login-button" class="button-login" style="width: 100%; height: 55px;" type="submit">LOG IN</button>
+				<br>
 				
 			</form>
-			<br><br><br>
 			
 		</div>
 	</div>
 	
+	
+	<script src="../bundle.js"></script>
 	
 </body>
 </html>
