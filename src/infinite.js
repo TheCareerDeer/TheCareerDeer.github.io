@@ -185,7 +185,7 @@ function addDataToDOM(data) {
 			</a>
 			<input type="button" style="display: inline-block; float: right; height: 52px; width: 52px; margin-top: -5px; margin-right: -13px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 52px 52px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -10px; margin-left: 6px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">${data.post.title}<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 22px; height: 22px; margin: 10px 0px 0px 10px;" /></a></h2>
+		<h2 class="title" style="margin-top: -10px; margin-left: 6px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">${data.post.title}<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 22px; height: 22px; position: fixed; margin: 10px 0px 0px 10px;" /></a></h2>
 		<p class="text" style="margin-top: 5px; font-size: 14px; margin-left: 8px;">in <a style="font-size: 15px; cursor: pointer;">${data.post.category} Jobs</a></p>
 		<p class="text" style="margin-top: 7px; font-size: 15px; margin-left: 8px;">Remote` + information + `</p>
 		<div class="user-info">
