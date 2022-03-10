@@ -318,12 +318,13 @@ a:hover {
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;
-	transition: .4s;
+	transition: .5s;
 	opacity: 1.0;
 }
 
 .user-info img:hover {
 	opacity: 0.3;
+	transition: .5s;
 }
 
 /* User info */
@@ -335,12 +336,13 @@ a:hover {
 
 .user-info input {
 	opacity: 1.0;
-	transition: .4s;
+	transition: .5s;
 }
 
 .user-info input:hover {
 	opacity: 0.5;
 	cursor: pointer;
+	transition: .5s;
 }
 
 .provider {
