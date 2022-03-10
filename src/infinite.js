@@ -152,6 +152,23 @@ function getDate(dateIn) {
 }
 
 function addDataToDOM(data) {
+	// Remotive data
+	var information = "";
+	
+	if(data.post.job_type == 'full_time')
+		information = "&nbsp; •&nbsp; Full-Time";
+	else if(data.post.job_type == 'part_time')
+		information = "&nbsp; •&nbsp; Part-Time";
+	else if(data.post.job_type == 'contract')
+		information = "&nbsp; •&nbsp; Contract Position";
+	
+	if(data.post.candidate_required_location != "")
+		information = information + "&nbsp; •&nbsp; " + data.post.candidate_required_location;
+	
+	if(data.post.salary != "")
+		information = information + "&nbsp; •&nbsp; " + data.post.salary;
+	
+	
 	if(data.post.category == 'All others')
 		data.post.category = 'Other';
 	
@@ -166,13 +183,14 @@ function addDataToDOM(data) {
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 5px; font-size: 14px;">${data.post.company_name}</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -2px; margin-right: -10px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 45px 45px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
+			<input type="button" style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -4px; margin-right: -13px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 45px 45px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -16px; margin-left: 3px;"><a href="${data.post.url}">${data.post.title}</a></h2>
+		<h2 class="title" style="margin-top: -10px; margin-left: 3px;"><a href="${data.post.url}">${data.post.title}</a></h2>
 		<p class="text" style="margin-top: 5px; font-size: 14px; margin-left: 5px;">in ${data.post.category} Jobs</p>
+		<p class="text" style="margin-top: 7px; font-size: 15px; margin-left: 5px;">Remote` + information + `</p>
 		<div class="user-info">
-			<div style="float: left; display: inline-block; margin-top: 5px; font-size: 14px;">` + dateOut + `</div>
-			<div style="float: right; display: inline-block; margin-top: 3px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
+			<div style="float: left; display: inline-block; margin-top: 5px; font-size: 14px; margin-left: 3px;">` + dateOut + `</div>
+			<div style="float: right; display: inline-block; margin-top: 6px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		
 	`;
