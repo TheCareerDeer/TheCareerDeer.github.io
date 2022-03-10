@@ -168,8 +168,8 @@ function addDataToDOM(data) {
 			</a>
 			<input type="button" style="display: inline-block; float: right; height: 45px; width: 45px; margin-top: -2px; margin-right: -10px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 45px 45px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -16px"><a href="${data.post.url}">${data.post.title}</a></h2>
-		<p class="text" style="margin-top: 5px; font-size: 14px;">in ${data.post.category} (Remote)</p>
+		<h2 class="title" style="margin-top: -16px; margin-left: 3px;"><a href="${data.post.url}">${data.post.title}</a></h2>
+		<p class="text" style="margin-top: 5px; font-size: 14px; margin-left: 5px;">in ${data.post.category} Jobs</p>
 		<div class="user-info">
 			<div style="float: left; display: inline-block; margin-top: 5px; font-size: 14px;">` + dateOut + `</div>
 			<div style="float: right; display: inline-block; margin-top: 3px;"><a href="https://remotive.io/">Provided by Remotive</a></div>

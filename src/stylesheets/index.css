@@ -82,8 +82,8 @@ a:hover {
 	background-color: #fff;
 	width: 100%;
 	margin: 0px;
-	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
-	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05);
 	overflow: hidden;
 	position: fixed;
 	z-index: 111111;
@@ -199,8 +199,8 @@ a:hover {
 /* Block container for stand-alone pages */
 .block-content {
 	background-color: #fff;
-	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
-	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05);
 	border-radius: 4px;
 	padding: 40px;
 	margin: 33px 0;
@@ -213,8 +213,8 @@ a:hover {
 /* Block container for homepage post */
 .block-post {
 	background-color: #fff;
-	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1); 
-	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05); 
+	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05);
 	border-radius: 4px;
 	padding: 30px;
 	margin: 33px 0;
