@@ -102,7 +102,7 @@ function savePost(i) {
 	console.log(i);
 	selectedPost = document.getElementById("save-button-" + i);
 	selectedPost.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
-	selectedPost.style.backgroundSize = "52px 52px";
+	selectedPost.style.backgroundSize = "65px 65px";
 }
 
 function getDate(dateIn) {
@@ -183,9 +183,9 @@ function addDataToDOM(data) {
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 6px; font-size: 14px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 52px; width: 52px; margin-top: -5px; margin-right: -13px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 52px 52px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
+			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -14px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -10px; margin-left: 6px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">${data.post.title}<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 24px; height: 24px; position: relative; top: 2px; margin: 2px 0px 0px 10px;" /></a></h2>
+		<h2 class="title" style="margin-top: -2px; margin-left: 6px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">${data.post.title}<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 24px; height: 24px; position: relative; top: 2px; margin: 2px 0px 0px 8px;" /></a></h2>
 		<p class="text" style="margin-top: 5px; font-size: 14px; margin-left: 8px;">in <a style="font-size: 15px; cursor: pointer;">${data.post.category} Jobs</a></p>
 		<p class="text" style="margin-top: 7px; font-size: 15px; margin-left: 8px;">Remote` + information + `</p>
 		<div class="user-info">
