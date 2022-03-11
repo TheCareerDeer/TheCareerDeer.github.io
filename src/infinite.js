@@ -25,7 +25,7 @@ function showLoading() {
 }
 
 async function getPost() {
-	var x = getRandomInt(0,15)
+	var x = getRandomInt(0,16)
 	if(x < 14) {
 		const postResponse = await fetch(`https://remotive.io/api/remote-jobs`);
 		const postData = await postResponse.json();
@@ -38,31 +38,210 @@ async function getPost() {
 		addDataToDOM(data);
 		count++;
 	}
-	else if(x == 14) {
+	else if(x >= 14) {
 		getInspo();
 	}
 }
 
 function getInspo() {
-	var x = getRandomInt(0,2);
+	var x = getRandomInt(0,25);
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-deer');
 	
 	if(x == 0) {
 	postElement.innerHTML = `
-		<h2 class="title">You've Got This</h2><br>
-		<img src="src/images/deer/001.jpg" style="max-width: 100%; border-radius: 4px;"/>
+		<img src="src/images/deer/001.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="user-info">73% of global employers are struggling to find candidates who meet their standards.
+		<div class="text" style="margin-top: -8px;">The average job search in the United States takes five months. You're on the right track, baby!
 		</div>
 	`;
 	}
-	else {
+	else if(x == 1) {
 	postElement.innerHTML = `
-		<h2 class="title">Don't Give Up Yet</h2><br>
-		<img src="src/images/deer/002.jpg" style="max-width: 100%; border-radius: 4px;"/>
+		<img src="src/images/deer/002.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="user-info">The average job search in the United States takes five months. You're on the right track, baby!
+		<div class="text" style="margin-top: -6px;">73% of global employers are struggling to find candidates who meet their standards.
+		</div>
+	`;	
+	}
+	else if(x == 2) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/003.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Keep your eyes peeled! There are endless opportunities.
+		</div>
+	`;	
+	}
+	else if(x == 3) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/004.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Remote is the new black. Work from home!
+		</div>
+	`;	
+	}
+	else if(x == 4) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/005.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thinking about submitting an application? Make sure you send your most updated resume!
+		</div>
+	`;	
+	}
+	else if(x == 5) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/006.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Tired of feeling outshined by other candidates? Don't worry, you're not alone! There's a job out there for you!
+	`;	
+	}
+	else if(x == 6) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/007.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">We've got your back! Our job postings are provided by trusted sources.
+		</div>
+	`;	
+	}
+	else if(x == 7) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/008.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thanks for using The Career Deer! You're the best!
+		</div>
+	`;	
+	}
+	else if(x == 8) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/009.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Applying for a job? Don't forget to check the requirements!
+		</div>
+	`;	
+	}
+	else if(x == 9) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/010.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Want to stand out on your application? Add information about projects you've worked on!
+		</div>
+	`;	
+	}
+	else if(x == 10) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/011.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thanks for using our site! We love you!
+		</div>
+	`;	
+	}
+	else if(x == 11) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/012.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Setting up an interview? Don't forget to research the company and position!
+		</div>
+	`;	
+	}
+	else if(x == 12) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/013.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Don't walk into an interview blindly. Research the company first!
+		</div>
+	`;	
+	}
+	else if(x == 13) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/014.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Don't walk into an interview blindly. Research the company first!
+		</div>
+	`;	
+	}
+	else if(x == 14) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/015.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thanks for using our site! We appreciate your support!
+		</div>
+	`;	
+	}
+	else if(x == 15) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/016.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Practicing for an interview? Don't forget to make eye contact!
+		</div>
+	`;	
+	}
+	else if(x == 16) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/017.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Practicing for an interview? Don't forget to make eye contact!
+		</div>
+	`;	
+	}
+	else if(x == 17) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/018.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Looking sharp! Don't forget to polish up your resume!
+		</div>
+	`;	
+	}
+	else if(x == 18) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/019.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Setting up an interview? Confidence is everything!
+		</div>
+	`;	
+	}
+	else if(x == 19) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/004.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Remote is the new black. Work from home!
+		</div>
+	`;	
+	}
+	else if(x == 20) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/021.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		</div>
+	`;	
+	}
+	else if(x == 21) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/022.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thanks for using The Career Deer! You're the coolest!
+		</div>
+	`;	
+	}
+	else if(x == 22) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/023.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thank you for using The Career Deer!
+		</div>
+	`;	
+	}
+	else if(x == 23) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/024.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Feeling overwhelmed? Try narrowing your search down to jobs which require skills you are most confident in!
+		</div>
+	`;	
+	}
+	else if(x == 24) {
+	postElement.innerHTML = `
+		<img src="src/images/deer/025.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
+		<br><br>
+		<div class="text" style="margin-top: -6px;">Thank you for using The Career Deer!
 		</div>
 	`;	
 	}
