@@ -41,6 +41,11 @@ a {
   -ms-text-size-adjust: none;
 }
 
+input {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 a:hover {
 	opacity: 0.6;
 }

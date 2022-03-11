@@ -247,7 +247,7 @@ function addDataToDOM(data) {
 		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px;">Remote` + information + `</p>
 		
 		<div id="show-desc-` + count + `" style="height: 0px; display: none; transition: opacity 7s; opacity: 0.0; width: 0px; padding: 0px 0px 0px 10px; margin-right: 40px; font-size: 14px;">` + jobDescription + `<br></div>
-		<a><input type="button" id="show-button-` + count + `" style="border: none; margin: auto; margin-left: 10px; margin-bottom: 16px; cursor: pointer; padding: 8px 8px 8px 8px; height: 100%; width: 140px; background-color: #c49700; color: #fff; border-radius: 4px; font-size: 11px; font-weight: bold; vertical-align: middle; text-align: center; align: center;" value="SHOW DESCRIPTION" onclick="showDescription(` + count + `)" /></a>
+		<a><input type="button" id="show-button-` + count + `"style="border: none; margin: auto; margin-left: 10px; margin-bottom: 16px; cursor: pointer; padding: 8px 8px 8px 8px; height: 100%; width: 140px; color: #fff; border-radius: 4px; font-size: 11px; font-weight: bold; vertical-align: middle; text-align: center; align: center; background: none; color: #fff; font: Tahoma; outline: inherit; background-color: #c49700;" value="SHOW DESCRIPTION" onclick="showDescription(` + count + `)" /></a>
 		
 		<div class="user-info">
 			<div style="float: left; display: inline-block; margin-top: 7px; font-size: 14px; margin-left: 3px;">` + dateOut + `</div>
