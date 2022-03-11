@@ -248,13 +248,13 @@ function addDataToDOM(data) {
 		<div class="user-info">
 		<a href="${data.post.url}">
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
-			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 11px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
+			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 10px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
 			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -12px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
 		<h2 class="title" style="margin-top: -2px; margin-left: 8px; display: flex;"><a style="margin-top: -8px" href="${data.post.url}">` + jobTitle + `<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 24px; height: 24px; position: relative; top: 2px; margin: 2px 0px 0px 6px;" /></a></h2>
 		<p class="text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">${data.post.category} Jobs</a></p>
-		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px;">Remote` + information + `</p>
+		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px; margin-bottom: 16px;">Remote` + information + `</p>
 		
 		<div id="show-desc-` + count + `" style="display: none; transition: opacity .75s; opacity: 0.0; padding: 0px 0px 0px 10px; margin-right: 40px; font-size: 14px;">` + jobDescription + `<br></div>
 		<a><input type="button" id="show-button-` + count + `"style="border: none; margin: auto; margin-left: 10px; margin-bottom: 16px; cursor: pointer; padding: 8px 8px 8px 8px; height: 100%; width: 140px; color: #fff; border-radius: 4px; font-size: 11px; font-weight: bold; vertical-align: middle; text-align: center; align: center; background: none; color: #fff; font: Tahoma; outline: inherit; background-color: #c49700;" value="SHOW DESCRIPTION" onclick="showDescription(` + count + `)" /></a>
