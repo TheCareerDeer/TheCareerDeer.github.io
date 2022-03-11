@@ -248,7 +248,7 @@ function addDataToDOM(data) {
 		<div class="user-info">
 		<a href="${data.post.url}">
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
-			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 7px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
+			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 11px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
 			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -12px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
