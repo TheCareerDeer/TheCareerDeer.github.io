@@ -1,12 +1,14 @@
 const container = document.getElementById('container');
-const loading = document.getElementsByName('loading');
+const loading = document.getElementById('loading-animation');
 var count = 0;
 
-getPost();
-getPost();
-getPost();
-getPost();
-getPost();
+if (count == 0) {
+	showLoading();
+	showLoading();
+	showLoading();
+	showLoading();
+	console.log("asdf");
+}
 
 window.addEventListener('scroll', () => {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
@@ -18,10 +20,10 @@ window.addEventListener('scroll', () => {
 });
 
 function showLoading() {
-	//loading.classList.add('show');
+	loading.classList.add('show');
 	
 	// load more data
-	setTimeout(getPost, 0)
+	setTimeout(getPost, 850);
 }
 
 async function getPost() {
@@ -461,5 +463,5 @@ function addDataToDOM(data) {
 	
 	container.appendChild(postElement);
 	
-	//loading.classList.remove('show');
+	loading.classList.remove('show');
 }
