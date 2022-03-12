@@ -54,7 +54,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/001.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -8px;">The average job search in the United States takes five months. You're on the right track, baby!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">The average job search in the United States takes five months. You're on the right track, baby!
 		</div>
 	`;
 	}
@@ -62,7 +62,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/002.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">73% of global employers are struggling to find candidates who meet their standards.
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">73% of global employers are struggling to find candidates who meet their standards.
 		</div>
 	`;	
 	}
@@ -70,7 +70,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/003.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Keep your eyes peeled! There are endless opportunities.
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Keep your eyes peeled! There are endless opportunities.
 		</div>
 	`;	
 	}
@@ -78,7 +78,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/004.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Remote is the new black. Work from home!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Remote is the new black. Work from home!
 		</div>
 	`;	
 	}
@@ -86,7 +86,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/005.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thinking about submitting an application? Make sure you send your most updated resume!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thinking about submitting an application? Make sure you send your most updated resume!
 		</div>
 	`;	
 	}
@@ -94,14 +94,14 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/006.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Tired of feeling outshined by other candidates? Don't worry, you're not alone! There's a job out there for you!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Tired of feeling outshined by other candidates? Don't worry, you're not alone! There's a job out there for you!
 	`;	
 	}
 	else if(x == 6) {
 	postElement.innerHTML = `
 		<img src="src/images/deer/007.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">We've got your back! Our job postings are provided by trusted sources.
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">We've got your back! Our job postings are provided by trusted sources.
 		</div>
 	`;	
 	}
@@ -109,7 +109,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/008.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thanks for using The Career Deer! You're the best!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thanks for using The Career Deer! You're the best!
 		</div>
 	`;	
 	}
@@ -117,7 +117,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/009.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Applying for a job? Don't forget to check the requirements!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Applying for a job? Don't forget to check the requirements!
 		</div>
 	`;	
 	}
@@ -125,7 +125,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/010.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Want to stand out on your application? Add information about projects you've worked on!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Want to stand out on your application? Add information about projects you've worked on!
 		</div>
 	`;	
 	}
@@ -133,7 +133,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/011.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thanks for using our site! We love you!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thanks for using our site! We love you!
 		</div>
 	`;	
 	}
@@ -141,7 +141,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/012.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Setting up an interview? Don't forget to research the company and position!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Setting up an interview? Don't forget to research the company and position!
 		</div>
 	`;	
 	}
@@ -149,7 +149,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/013.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Don't walk into an interview blindly. Research the company first!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Don't walk into an interview blindly. Research the company first!
 		</div>
 	`;	
 	}
@@ -157,7 +157,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/014.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Don't walk into an interview blindly. Research the company first!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Don't walk into an interview blindly. Research the company first!
 		</div>
 	`;	
 	}
@@ -165,7 +165,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/015.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thanks for using our site! We appreciate your support!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thanks for using our site! We appreciate your support!
 		</div>
 	`;	
 	}
@@ -173,7 +173,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/016.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Practicing for an interview? Don't forget to make eye contact!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Practicing for an interview? Don't forget to make eye contact!
 		</div>
 	`;	
 	}
@@ -181,7 +181,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/017.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Practicing for an interview? Don't forget to make eye contact!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Practicing for an interview? Don't forget to make eye contact!
 		</div>
 	`;	
 	}
@@ -189,7 +189,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/018.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Looking sharp! Don't forget to polish up your resume!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Looking sharp! Don't forget to polish up your resume!
 		</div>
 	`;	
 	}
@@ -197,7 +197,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/019.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Setting up an interview? Confidence is everything!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Setting up an interview? Confidence is everything!
 		</div>
 	`;	
 	}
@@ -205,7 +205,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/004.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Remote is the new black. Work from home!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Remote is the new black. Work from home!
 		</div>
 	`;	
 	}
@@ -219,7 +219,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/022.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thanks for using The Career Deer! You're the coolest!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thanks for using The Career Deer! You're the coolest!
 		</div>
 	`;	
 	}
@@ -227,7 +227,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/023.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thank you for using The Career Deer!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thank you for using The Career Deer!
 		</div>
 	`;	
 	}
@@ -235,7 +235,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/024.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Feeling overwhelmed? Try narrowing your search down to jobs which require skills you are most confident in!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Feeling overwhelmed? Try narrowing your search down to jobs which require skills you are most confident in!
 		</div>
 	`;	
 	}
@@ -243,7 +243,7 @@ function getInspo() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/025.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px;">Thank you for using The Career Deer!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Thank you for using The Career Deer!
 		</div>
 	`;	
 	}
@@ -442,7 +442,7 @@ function addDataToDOM(data) {
 		
 		<div class="user-info">
 			<div style="float: left; display: inline-block; margin-top: 7px; font-size: 14px; margin-left: 12px;">` + "&nbsp;" + dateOut + `</div>
-			<div style="float: right; display: inline-block; margin-top: 8px; margin-right: -20px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
+			<div style="float: right; display: inline-block; margin-top: 6px; margin-right: -20px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		
 	`;

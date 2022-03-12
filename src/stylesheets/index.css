@@ -243,7 +243,7 @@ a:hover {
 	-webkit-box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05); 
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.05);
 	border-radius: 4px;
-	padding: 40px 38px 18px 38px;
+	padding: 40px 38px 38px 38px;
 	margin: 33px 0;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
@@ -460,22 +460,22 @@ input[type=text], input[type=password] {
 	opacity: 0;
 	display: flex;
 	position: fixed;
-	bottom: 65px;
+	bottom: 56px;
 	left: 50%;
 	transform: translateX(-50%);
-	transition: opacity .85s ease-in-out;
+	transition: opacity 1s ease-in-out;
 }
 
 .loading.show {
-	opacity: 1;
+	opacity: 0.7;
 }
 
 .ball {
-	background-color: #777;
+	background-color: #333;
 	border-radius: 50%;
-	margin: 5px;
-	height: 10px;
-	width: 10px;
+	margin: 10px;
+	height: 15px;
+	width: 15px;
 	animation: jump .5s ease-in infinite;
 }
 
