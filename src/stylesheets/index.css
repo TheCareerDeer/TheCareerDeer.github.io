@@ -231,10 +231,10 @@ a:hover {
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 	  -webkit-transition: max-height .5s ease-in-out, min-height .5s ease-in-out,;
-  -moz-transition: max-height .5s ease-in-out, min-height .5s ease-in-out;
-  -ms-transition: max-height .5s ease-in-out, min-height .5s ease-in-out;
-  -o-transition: max-height .5s ease-in-out, min-height .5s ease-in-out;
-  transition: max-height .5s ease-in-out, min-height .5s ease-in-out;
+  -moz-transition: max-height .75s ease-in-out, min-height .5s ease-in-out;
+  -ms-transition: max-height .75s ease-in-out, min-height .5s ease-in-out;
+  -o-transition: max-height .75s ease-in-out, min-height .5s ease-in-out;
+  transition: max-height .75s ease-in-out, min-height .5s ease-in-out;
 }
 
 /* Block container for homepage post */
@@ -245,7 +245,7 @@ a:hover {
 	border-radius: 4px;
 	padding: 40px 38px 38px 38px;
 	margin: 33px 0;
-    animation: fadein 2s;
+    animation: fadein 3s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
