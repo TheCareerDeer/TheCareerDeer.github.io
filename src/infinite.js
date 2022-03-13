@@ -5,9 +5,6 @@ var count = 0;	// Count used for referencing each post as it is generated on the
 // Load four posts on page load
 if (count == 0) {
 	showLoading();
-	showLoading();
-	showLoading();
-	showLoading();
 };
 
 // Load additional posts as the user scrolls down
@@ -27,22 +24,27 @@ function showLoading() {
 
 // Get a post using a random integer to select post type
 async function getPost() {
-	var x = getRandomInt(0,16);
+	// Remotive job post
+	const postResponse = await fetch(`https://remotive.io/api/remote-jobs`);
+	const postData = await postResponse.json();
 	
-	if(x < 14) {
-		// Remotive job post
-		const postResponse = await fetch(`https://remotive.io/api/remote-jobs`);
-		const postData = await postResponse.json();
+	for(let i = 0; i < 10; i++) {
+		var x = getRandomInt(0,16);
 		
-		const data = { post: postData.jobs[count] };
-		
-		postRemotive(data);
-		count++;
+		if(x < 14) {
+			
+			const data = { post: postData.jobs[count] };
+			
+			postRemotive(data);
+			count++;
+		}
+		else {
+			// Deer GIF post
+			deerPost();
+		}
 	}
-	else if(x >= 14) {
-		// Deer GIF post
-		deerPost();
-	}
+	
+	setTimeout(loading.classList.remove('show'), 800);
 };
 
 // Generate a random integer for selecting post types and specific random posts
@@ -248,7 +250,6 @@ function postRemotive(data) {
 	
 	// Append post to container and hide the loading animation
 	container.appendChild(postElement);
-	loading.classList.remove('show');
 };
 
 // Deer GIF post using random integer to select post
