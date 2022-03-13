@@ -301,7 +301,7 @@ function deerPost() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/006.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Tired of feeling outshined by other candidates? Don't worry, you're not alone! There's a job out there for you!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Keep looking! There's a job out there for you!
 	`;	
 	}
 	else if(x == 6) {
@@ -324,7 +324,7 @@ function deerPost() {
 	postElement.innerHTML = `
 		<img src="src/images/deer/009.gif" style="width: 554px; height: auto; border-radius: 4px;"/>
 		<br><br>
-		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Applying for a job? Don't forget to check the requirements!
+		<div class="text" style="margin-top: -6px; margin-bottom: -6px;">Applying for a job? Don't forget to check the technical requirements!
 		</div>
 	`;	
 	}
