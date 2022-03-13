@@ -1,4 +1,4 @@
-/* Tahoma font imported */
+/*********************** Global settings ***********************/
 @font-face {
 	font-family: Tahoma;
 	src: url(../fonts/tahoma.ttf);
@@ -10,10 +10,6 @@
 	font-weight: bold;
 }
 
-
-
-
-/*********************** Global settings ***********************/
 * {
 	font-family: Tahoma;
 	text-decoration: none;
@@ -41,13 +37,13 @@ a {
   -ms-text-size-adjust: none;
 }
 
+a:hover {
+	opacity: 0.6;
+}
+
 input {
   -webkit-appearance: none;
   appearance: none;
-}
-
-a:hover {
-	opacity: 0.6;
 }
 
 /** Screen size adjustments for various platforms (desktop/mobile) **/
