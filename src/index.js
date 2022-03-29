@@ -1,3 +1,4 @@
+// Import Node.js modules
 import { initializeApp
 } from 'firebase/app'
 
@@ -8,7 +9,7 @@ import { getFirestore, collection, getDocs
 } from 'firebase/firestore'
 
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional...
+// Initialize Firebase configuration constant
 const firebaseConfig = {
   apiKey: "AIzaSyDWnA7vja3VhtgZbt3tnCzdKcdWl3zJA3k",
   authDomain: "thecareerdeer.firebaseapp.com",
@@ -19,25 +20,26 @@ const firebaseConfig = {
   measurementId: "G-CVYQQETPV2"
 };
 
-initializeApp(firebaseConfig)
+// Initialize Firebase App, Auth, and Firestore modules
+initializeApp(firebaseConfig);
 const auth = getAuth();
-const db = getFirestore()
+const db = getFirestore();
 
-
+// Check login status of the user and update page as necessary
 onAuthStateChanged(auth, (user) => {									
   if(user) {
-	  updateNavBar();
+	  updateNavBar();		// Update navigation bar links
 	  console.log(user);
 	  testFirestore();
   }
   else {
 	  console.log("You are not signed in.");
-	  checkRegister();
-	  checkLogin();
+	  checkLogin();			// If user is on the login page, add an event listener for the login function
+	  checkRegister();		// If user is on the register page, add an event listener for the register function
   }
-})
+});
 
-
+// Test Firestore application
 function testFirestore() {
 	const colCities = collection(db, 'cities')
 	getDocs(colCities)
@@ -50,21 +52,22 @@ function testFirestore() {
 	})	.catch(err => {
 			console.log(err.message)
 	});
-}
+};
 
-
+// Login auth functions
+// Call if user is signed out and on the login page
 function checkLogin() {
-	// Login page auth methods
 	try {
 		const loginForm = document.querySelector("#login-form");
 		const loginButton = document.getElementById("login-button");
 		
+		// Add an event listener for the login button function
 		loginForm.addEventListener('submit', (e) => {
 			e.preventDefault();
-			var success = true;
 			var identification = loginForm['identification'].value
 			var password = loginForm['password'].value;
 			
+			// Pass information to Firebase and redirect user to the homepage
 			signInWithEmailAndPassword(auth, identification, password)
 				.then((userCredential) => {
 					// Signed in 
@@ -74,19 +77,15 @@ function checkLogin() {
 				  .catch((error) => {
 					const errorCode = error.code;
 					const errorMessage = error.message;
-					success = false;
-				  });		
-
-			if(success) {
-				console.log("You have logged in successfully.");
-			}
-		})
-
+				  });
+		});
 
 	}
-	catch { }
-}
+	catch { };
+};
 
+// Register auth functions
+// Call if user is signed out and on the register page
 function checkRegister() {
 	try {
 		const registerForm = document.querySelector('#register-form');
