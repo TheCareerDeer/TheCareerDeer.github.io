@@ -1,6 +1,7 @@
 const container = document.getElementById('container');			// Get page container for posts
 const loading = document.getElementById('loading-animation');	// Get post loading animation object
 var count = 0;	// Count used for referencing each post as it is generated on the client's screen
+var delay = 0;  // Delay in ms used in between loading posts
 
 // Load four posts on page load
 if (count == 0) {
@@ -11,15 +12,15 @@ if (count == 0) {
 window.addEventListener('scroll', () => {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 	
-	if(clientHeight + scrollTop >= scrollHeight - 20) {
+	if(clientHeight + scrollTop >= scrollHeight - 20)
 		showLoading();
-	}
 });
 
 // Show the loading animation, get a post, and append it
 function showLoading() {
 	loading.classList.add('show');	// Make loading animation object visible
-	setTimeout(getPost, 850);		// Load a post after loading animation ends (850ms)
+	setTimeout(getPost, delay);		// Load a post after loading animation ends (850ms)
+	delay = 850;
 };
 
 // Get a post using a random integer to select post type
@@ -32,9 +33,7 @@ async function getPost() {
 		var x = getRandomInt(0,16);
 		
 		if(x < 14) {
-			
 			const data = { post: postData.jobs[count] };
-			
 			postRemotive(data);
 			count++;
 		}
@@ -171,7 +170,6 @@ function postRemotive(data) {
 	// Get job category and fix
 	if(data.post.category == 'All others')
 		data.post.category = 'Other';
-	
 	
 	// Get post information line and fix
 	var information = "";
