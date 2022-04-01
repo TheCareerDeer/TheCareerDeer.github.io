@@ -112,7 +112,7 @@ function getFixedString(line) {
 			fixed = line.charAt(0).toUpperCase() + line.substring(1, line.length);
 		}
 		else if(line != "" && isAfterSpace) {
-			if(line.substring(i,i+2) != 'or' && line.substring(i,i+3) != 'the' && line.substring(i,i+3) != 'and')
+			if(line.substring(i,i+2) != 'or' && line.substring(i,i+3) != 'the' && line.substring(i,i+3) != 'and' && line.substring(i,i+2) != 'of')
 				fixed = fixed.substring(0,i) +  line.charAt(i).toUpperCase() + line.substring(i+1, line.length);
 			isAfterSpace = false;
 		}
@@ -214,9 +214,9 @@ function postRemotive(data) {
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 10px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -12px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
+			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -9px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -2px; margin-left: 8px; display: flex;"><a style="margin-top: -8px" href="${data.post.url}">` + jobTitle + `</a></h2>
+		<h2 class="title" style="margin-top: -2px; margin-left: 8px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">` + jobTitle + `</a></h2>
 		<p class="text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">${data.post.category}</a></p>
 		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px; margin-bottom: 16px;">Remote` + information + `</p>
 		
