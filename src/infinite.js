@@ -26,7 +26,7 @@ function showLoading() {
 // Get a post using a random integer to select post type
 async function getPost() {
 	// Remotive job post
-	const postResponse = await fetch(`https://remotive.io/api/remote-jobs`);
+	const postResponse = await fetch(`https://remotive.com/api/remote-jobs`);
 	const postData = await postResponse.json();
 	
 	for(let i = 0; i < 10; i++) {
