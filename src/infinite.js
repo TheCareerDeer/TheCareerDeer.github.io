@@ -1,3 +1,32 @@
+// Import Node.js modules
+import { initializeApp
+} from 'firebase/app'
+
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
+} from 'firebase/auth'
+
+import { getFirestore, collection, getDocs
+} from 'firebase/firestore'
+
+
+// Initialize Firebase configuration constant
+const firebaseConfig = {
+  apiKey: "AIzaSyDWnA7vja3VhtgZbt3tnCzdKcdWl3zJA3k",
+  authDomain: "thecareerdeer.firebaseapp.com",
+  projectId: "thecareerdeer",
+  storageBucket: "thecareerdeer.appspot.com",
+  messagingSenderId: "778028835481",
+  appId: "1:778028835481:web:07af86c8b20b619c040e08",
+  measurementId: "G-CVYQQETPV2"
+};
+
+// Initialize Firebase App, Auth, and Firestore modules
+initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore();
+
+var loggedIn = false;
+
 const container = document.getElementById('container');			// Get page container for posts
 const loading = document.getElementById('loading-animation');	// Get post loading animation object
 var count = 0;	// Count used for referencing each post as it is generated on the client's screen
@@ -54,11 +83,25 @@ function getRandomInt(min, max) {
 };
 
 // Show save post animation and save selected post (i) to user's saved posts list
-function savePost(i) {
-	selectedPost = document.getElementById("save-button-" + i);
-	selectedPost.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
-	selectedPost.style.backgroundSize = "65px 65px";
+function savePost(i, x) {
+	var saveButton = document.getElementById("save-button-" + i);
+	
+	if(x == 0 && loggedIn) {
+		saveButton.setAttribute('onclick','savePost(' + i + ', 1)');
+		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
+		saveButton.style.backgroundSize = "65px 65px";
+	}
+	else if(loggedIn == false) {
+		alert("You must log in or create an account to save posts.");
+	}
+	else {
+		saveButton.setAttribute('onclick','savePost(' + i + ', 0)');
+		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-unchecked.png')";
+		saveButton.style.backgroundSize = "65px 65px";
+	}
+	
 };
+window.savePost = savePost;
 
 // Return formatted dated from JSON formatted date input
 function getDate(dateIn) {
@@ -126,7 +169,7 @@ function getFixedString(line) {
 
 // Show description if hidden, hide description if shown
 function changeDescVisibility(i) {
-	selectedDesc = document.getElementById("show-desc-" + i);
+	var selectedDesc = document.getElementById("show-desc-" + i);
 	
 	if(document.getElementById("show-button-" + i).value == "SHOW DESCRIPTION") {
 		selectedDesc.style.width = "100%";
@@ -144,6 +187,7 @@ function changeDescVisibility(i) {
 		sleeping(i);
 	}
 };
+window.changeDescVisibility = changeDescVisibility;
 
 // Pause for requested number of ms
 function sleep(ms) {
@@ -152,7 +196,7 @@ function sleep(ms) {
 
 // Set description to sleep upon request
 async function sleeping(i) {
-	selectedDesc = document.getElementById("show-desc-" + i);
+	var selectedDesc = document.getElementById("show-desc-" + i);
   await sleep(750);
 		selectedDesc.style.display = "none";
 		document.getElementById("blockpost-" + i).style.minHeight = "0px";
@@ -214,13 +258,13 @@ function postRemotive(data) {
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 10px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -9px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `)" id="save-button-` + count + `" />
+			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -9px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `, 0)" id="save-button-` + count + `" />
 		</div>
 		<h2 class="title" style="margin-top: -2px; margin-left: 8px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">` + jobTitle + `</a></h2>
 		<p class="text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">${data.post.category}</a></p>
 		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px; margin-bottom: 16px;">Remote` + information + `</p>
 		
-		<div id="show-desc-` + count + `" style="display: none; transition: opacity .75s; opacity: 0.0; padding: 0px 0px 0px 10px; margin-right: 40px; font-size: 14px;">` + jobDescription + `<br></div>
+		<div id="show-desc-` + count + `" style="display: none; transition: opacity .7s; opacity: 0.0; padding: 0px 0px 0px 10px; margin-right: 40px; font-size: 14px;">` + jobDescription + `<br></div>
 		<a><input type="button" id="show-button-` + count + `"style="border: none; margin: auto; margin-left: 10px; margin-bottom: 16px; cursor: pointer; padding: 8px 8px 8px 8px; height: 100%; width: 140px; color: #fff; border-radius: 4px; font-size: 11px; font-weight: bold; vertical-align: middle; text-align: center; align: center; background: none; color: #fff; font: Tahoma; outline: inherit; background-color: #c49700;" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
 		<a href="${data.post.url}">
 			<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 24px; height: 24px; position: relative; top: 2px; margin: -5px 0px 0px 8px;" />
@@ -455,3 +499,12 @@ function deerPost() {
 	}
 	container.appendChild(postElement);
 };
+
+
+
+// Check login status of the user and obtain user data
+onAuthStateChanged(auth, (user) => {									
+  if(user) {
+	  loggedIn = true;
+  }
+});

@@ -334,6 +334,7 @@ input {
 	height: 100%;
 	margin-bottom: 8px;
 	margin-left: -4px;
+	transition: .5s;
 }
 
 /* User info */
@@ -341,14 +342,14 @@ input {
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;
-	transition: .7s;
+	transition: .5s;
 	opacity: 1.0;
 	margin-top: 5px;
 }
 
 .user-info img:hover {
 	opacity: 0.3;
-	transition: .7s;
+	transition: .5s;
 }
 
 /* User info */
@@ -356,17 +357,18 @@ input {
 	font-size: 13px;
 	margin-left: 10px;
 	margin-top: -20px;
+	transition: .5s;
 }
 
 .user-info input {
 	opacity: 1.0;
-	transition: .7s;
+	transition: .5s;
 }
 
 .user-info input:hover {
 	opacity: 0.5;
 	cursor: pointer;
-	transition: .7s;
+	transition: .5s;
 }
 
 .provider {
