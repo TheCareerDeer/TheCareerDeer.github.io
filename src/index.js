@@ -75,8 +75,12 @@ function checkLogin() {
 					location.href = 'https://thecareerdeer.com/';
 				  })
 				  .catch((error) => {
+					// Login failed
+					console.log("Login failed.");
 					const errorCode = error.code;
 					const errorMessage = error.message;
+					console.log(errorCode);
+					console.log(errorMessage);
 				  });
 		});
 
@@ -92,13 +96,15 @@ function checkRegister() {
 		const continueButton = document.getElementById("continueButton");
 		var email = "";
 		var username ="";
-		var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
+		var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;	// Used for later comparison to ensure username is alphanumeric
 		
+		// After interaction with the "Continue" button, pass username and email credentials if valid to the updated page
 		function passCreds() {
 			console.log("Passing credentials to next form...");
 			email = document.getElementById("email").value;
 			username = document.getElementById("username").value;
-				
+			
+			// Check integrity of email and username
 			if (email != "" &&
 				email.includes("@") &&
 				email.includes(".") &&
@@ -110,6 +116,7 @@ function checkRegister() {
 					
 					console.log("Requirements met...");
 					
+					// Grab page elements
 					const labelEmail = document.getElementById("label-email");
 					const labelUsername = document.getElementById("label-username");
 					const captionEmail = document.getElementById("caption-email");
@@ -118,38 +125,43 @@ function checkRegister() {
 					const box2 = document.getElementById("box2");
 					const button1 = document.getElementById("button1");
 					
+					// Update page elements
 					labelEmail.innerHTML = "<b>Password</b>";
 					labelUsername.innerHTML = "<b>Confirm Password</b>";
 					captionEmail.innerHTML = "Please enter a password that includes a number or symbol with at least eight characters.";
 					captionUsername.innerHTML = "Please retype your password to confirm it is correct.";
-					box1.innerHTML = `<input type="password" placeholder="Example: Andr0meda" id="password" name="password" required>`;
-					box2.innerHTML = `<input type="password" placeholder="Example: Andromed@" id="confirmPassword" name="confirmPassword" required>`;
+					box1.innerHTML = `<input type="password" placeholder="" id="password" name="password" required>`;
+					box2.innerHTML = `<input type="password" placeholder="" id="confirmPassword" name="confirmPassword" required>`;
 					button1.innerHTML = `<button class="button-login" style="width: 100%; height: 55px;" type="submit">COMPLETE REGISTRATION</button>`;
 					console.log("Credentials passed...");
 			}
 			else {
+				// Pass failed
 				console.log("Your credentials do not meet the necessary standards required to create an account.");
 				email = "";
 				username = "";
 			}
-		}
-			
+		};
+		
+		// Add event listener for passCreds() upon interaction with the "Continue" button
 		continueButton.addEventListener('click', (e) => {
 			passCreds();
 		});
 
+		// Add an event listener for account creation function
 		registerForm.addEventListener('submit', (e) => {
-			// Create an account
 			e.preventDefault();
 			var password = registerForm['password'].value;
 			var confirmPassword = registerForm['confirmPassword'].value;
 			console.log("Registration form submitted.");
 			
+			// Check integrity of password
 			if(password == confirmPassword &&
 			   password.length > 7) {
 				   
 				   console.log("Your passwords match.");
 			
+				// Pass information to Firebase and redirect user to the homepage
 				createUserWithEmailAndPassword(auth, email, password)
 				  .then((userCredential) => {
 					// Signed in 
@@ -157,25 +169,34 @@ function checkRegister() {
 					location.href = '../';
 				  })
 				  .catch((error) => {
+					// Account creation failed
+					console.log("Account creation failed.");
 					const errorCode = error.code;
 					const errorMessage = error.message;
-					// ..
+					console.log(errorCode);
+					console.log(errorMessage);
 				  });
 			  
 			 }
 			 else {
+				// Account creation failed
 				password = "";
 				confirmPassword = "";
-			 }
+				console.log("Account creation failed.");
+			 };
 		});
-	} catch { }
-}
+		
+	} catch { };
+};
 
+// Update navigation bar links based on the user's login status
 function updateNavBar() {
 	try {
+		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
 		navBar.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a>`;
 		
+		// Grab logout button element and add an event listener for button interaction
 		const logout = document.getElementById("logout");
 		logout.addEventListener('click', (e) => {
 			e.preventDefault();
@@ -184,15 +205,16 @@ function updateNavBar() {
 				location.href = 'https://thecareerdeer.com/';
 			});
 		});
-	} catch { }
+	} catch { };
 	
 	updateButtonAbout();
-}
+};
 
+// Update "About" page navigation bar
 function updateButtonAbout() {
 	try {
 		const discard = document.querySelector("#page-about");
 		if(discard != null)
 			document.getElementById("button-about").style.opacity = 0.5;
-	} catch { }
-}
+	} catch { };
+};
