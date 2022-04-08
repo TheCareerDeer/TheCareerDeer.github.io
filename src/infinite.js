@@ -27,26 +27,49 @@ const db = getFirestore();
 
 var loggedIn = false;
 
+let savedPosts = [];
+let savedIDs = [];
+
 const container = document.getElementById('container');			// Get page container for posts
 const loading = document.getElementById('loading-animation');	// Get post loading animation object
 var count = 0;	// Count used for referencing each post as it is generated on the client's screen
 var delay = 0;  // Delay in ms used in between loading posts
 
-// Load four posts on page load
-if (count == 0) {
-	showLoading();
-};
 
-// Load additional posts as the user scrolls down
-window.addEventListener('scroll', () => {
-	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-	
-	if(clientHeight + scrollTop >= scrollHeight - 20)
+// Check login status of the user and obtain user data
+onAuthStateChanged(auth, (user) => {									
+  if(user) {
+	  loggedIn = true;
+	  const collSavedPosts = collection(db, 'users', auth.currentUser.uid, 'saved-posts');
+		getDocs(collSavedPosts)
+			.then((snapshot) => {
+				snapshot.docs.forEach((doc) => {
+					savedPosts.push({ ...doc.data(), id: doc.id })
+					savedIDs.push({ ...id: doc.id })
+				})
+				console.log(savedPosts);
+				console.log(savedPosts[0].contents);
+		})	.catch(err => {
+				console.log(err.message);
+		});
+  }
+  
+	// Load four posts on page load
+	if (count == 0) {
 		showLoading();
+	};
+
+	// Load additional posts as the user scrolls down
+	window.addEventListener('scroll', () => {
+		const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+		
+		if(clientHeight + scrollTop >= scrollHeight - 20)
+			showLoading();
+	});
 });
 
 // Show the loading animation, get a post, and append it
-function showLoading() {
+async function showLoading() {
 	loading.classList.add('show');	// Make loading animation object visible
 	setTimeout(getPost, delay);		// Load a post after loading animation ends (850ms)
 	delay = 850;
@@ -59,9 +82,10 @@ async function getPost() {
 	const postData = await postResponse.json();
 	
 	for(let i = 0; i < 10; i++) {
-		var x = getRandomInt(0,16);
+		var x = getRandomInt(0,10);
 		
-		if(x < 14) {
+		if(x < 9) {
+			// Remotive post
 			const data = { post: postData.jobs[count] };
 			postRemotive(data);
 			count++;
@@ -90,6 +114,16 @@ function savePost(i, x) {
 		saveButton.setAttribute('onclick','savePost(' + i + ', 1)');
 		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
 		saveButton.style.backgroundSize = "65px 65px";
+		
+		const collSavedPosts = collection(db, 'users', auth.currentUser.uid, 'saved-posts');
+		addDoc(collSavedPosts, {
+			id: "rmtv-" + ,
+		})
+		.then(() => {
+			// Profile created
+			console.log("Your account was created successfully.");
+			location.href = '../';
+		})
 	}
 	else if(loggedIn == false) {
 		alert("You must log in or create an account to save posts.");
@@ -205,7 +239,7 @@ async function sleeping(i) {
 };
 
 // Obtain Remotive post
-function postRemotive(data) {
+function postRemotive(data, savedIDs) {
 	
 	// Get job title
 	var jobTitle = getFixedString(data.post.title);
@@ -247,20 +281,33 @@ function postRemotive(data) {
 	var dateIn = data.post.publication_date;
 	var dateOut = getDate(dateIn);
 	
+	var targetImage = 'https://thecareerdeer.com/src/images/save-unchecked.png';
+	var isSaved = 0;
+	var postID = data.post.id;
+	let numberID = postID.substring(5, postID.length);
+	
+	// Update save button if post is already saved
+	for (let i = 0; i < savedIDs.length; i++) {
+		if(loggedIn && postID == savedIDs[i]) {
+			targetImage = 'https://thecareerdeer.com/src/images/save-checked.png';
+			isSaved = 1;
+		}
+	}
+	
 	
 	// Remotive post template
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	postElement.setAttribute("id", ("blockpost-" + count));
-	postElement.innerHTML = `
+	var postContents = `
 		<div class="user-info">
 		<a href="${data.post.url}">
 			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
 			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 10px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -9px; margin-right: -24px; border: none; background: url('https://thecareerdeer.com/src/images/save-unchecked.png'); background-size: 65px 65px;" onclick="savePost(` + count + `, 0)" id="save-button-` + count + `" />
+			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -10px; margin-right: -25px; border: none; background: url(` + targetImage + `); background-size: 65px 65px;" onclick="savePost(` + count + `, ` + isSaved + `)" id="save-button-` + count + `" />
 		</div>
-		<h2 class="title" style="margin-top: -2px; margin-left: 8px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">` + jobTitle + `</a></h2>
+		<h2 class="title" style="margin-top: -1px; margin-left: 8px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">` + jobTitle + `</a></h2>
 		<p class="text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">${data.post.category}</a></p>
 		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px; margin-bottom: 16px;">Remote` + information + `</p>
 		
@@ -275,6 +322,8 @@ function postRemotive(data) {
 		</div>
 		
 	`;
+	
+	postElement.innerHTML = postContents;
 	
 	// Set max height based on post content size for show/hide animation
 	if(jobTitle.length < 42 && information.length < 77) {
@@ -501,10 +550,3 @@ function deerPost() {
 };
 
 
-
-// Check login status of the user and obtain user data
-onAuthStateChanged(auth, (user) => {									
-  if(user) {
-	  loggedIn = true;
-  }
-});

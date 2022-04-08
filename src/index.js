@@ -2,10 +2,10 @@
 import { initializeApp
 } from 'firebase/app'
 
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile
 } from 'firebase/auth'
 
-import { getFirestore, collection, getDocs
+import { getFirestore, collection, getDocs, addDoc
 } from 'firebase/firestore'
 
 
@@ -30,7 +30,6 @@ onAuthStateChanged(auth, (user) => {
   if(user) {
 	  updateNavBar();		// Update navigation bar links
 	  console.log(user);
-	  testFirestore();
   }
   else {
 	  console.log("You are not signed in.");
@@ -41,8 +40,8 @@ onAuthStateChanged(auth, (user) => {
 
 // Test Firestore application
 function testFirestore() {
-	const colCities = collection(db, 'cities')
-	getDocs(colCities)
+	const collCities = collection(db, 'cities');
+	getDocs(collCities)
 		.then((snapshot) => {
 			let cities = []
 			snapshot.docs.forEach((doc) => {
@@ -111,8 +110,9 @@ function checkRegister() {
 				email.length > 5 &&
 				!email.includes(" ") &&
 				username != "" &&
-				username.length > 2 &&
-				username.match(alphaNumeric)) {
+				username.length > 4 &&
+				username.includes(" ") &&
+				username.match(/[a-z]/i)) {
 					
 					console.log("Requirements met...");
 					
@@ -164,9 +164,23 @@ function checkRegister() {
 				// Pass information to Firebase and redirect user to the homepage
 				createUserWithEmailAndPassword(auth, email, password)
 				  .then((userCredential) => {
-					// Signed in 
-					console.log("Your account was created successfully.");
-					location.href = '../';
+					updateProfile(auth.currentUser, {
+					  displayName: username, photoURL: "../src/images/logo/small.png"
+					}).then(() => {
+						const collSavedPosts = collection(db, 'users', auth.currentUser.uid, 'saved-posts');
+						addDoc(collSavedPosts, {
+							title: "Plumber",
+						})
+						.then(() => {
+							// Profile created!
+							console.log("Your account was created successfully.");
+							//location.href = '../';
+						})
+					}).catch((error) => {
+					  // An error occurred
+					  console.log(error);
+					});
+					
 				  })
 				  .catch((error) => {
 					// Account creation failed
