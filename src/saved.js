@@ -69,6 +69,13 @@ onAuthStateChanged(auth, (user) => {
 				})
 				
 				// Load four posts on page load
+				if (savedPosts.length == 0) {
+					const postElement = document.createElement('div');
+					postElement.classList.add('block-post');
+					postElement.innerHTML = `<h2>You do not have any posts saved yet.</h2><p style="text">To save a job to this list, click the target button in the top right corner of a post. You can unsave a job at any time.</p>`;
+					container.appendChild(postElement);
+				}
+				
 				if (count == 0) {
 					showLoading();
 				};
