@@ -5,9 +5,14 @@ import { initializeApp
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
 } from 'firebase/auth'
 
-import { getFirestore, collection, getDocs
+import { getFirestore, collection, doc, getDocs, addDoc, setDoc, deleteDoc
 } from 'firebase/firestore'
 
+
+try {
+	
+const page = document.getElementById('homepage');
+page.innerHTML = '';
 
 // Initialize Firebase configuration constant
 const firebaseConfig = {
@@ -27,8 +32,8 @@ const db = getFirestore();
 
 var loggedIn = false;
 
-let savedPosts = [];
-let savedIDs = [];
+var savedPosts = [];
+var numberOfSavedPosts = 0;
 
 const container = document.getElementById('container');			// Get page container for posts
 const loading = document.getElementById('loading-animation');	// Get post loading animation object
@@ -44,28 +49,42 @@ onAuthStateChanged(auth, (user) => {
 		getDocs(collSavedPosts)
 			.then((snapshot) => {
 				snapshot.docs.forEach((doc) => {
-					savedPosts.push({ ...doc.data(), id: doc.id })
-					savedIDs.push({ ...id: doc.id })
+					savedPosts.push({ ...doc.data(), id: doc.id });
+					numberOfSavedPosts++;
 				})
-				console.log(savedPosts);
-				console.log(savedPosts[0].contents);
+				
+				// Load four posts on page load
+				if (count == 0) {
+					showLoading();
+				};
+
+				// Load additional posts as the user scrolls down
+				window.addEventListener('scroll', () => {
+					const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+					
+					if(clientHeight + scrollTop >= scrollHeight - 20)
+						showLoading();
+				});
+						
 		})	.catch(err => {
 				console.log(err.message);
 		});
   }
-  
-	// Load four posts on page load
-	if (count == 0) {
-		showLoading();
-	};
-
-	// Load additional posts as the user scrolls down
-	window.addEventListener('scroll', () => {
-		const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-		
-		if(clientHeight + scrollTop >= scrollHeight - 20)
+  else {
+		// Load four posts on page load
+		if (count == 0) {
 			showLoading();
-	});
+		};
+
+		// Load additional posts as the user scrolls down
+		window.addEventListener('scroll', () => {
+			const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+			
+			if(clientHeight + scrollTop >= scrollHeight - 20)
+				showLoading();
+		});
+	
+	}
 });
 
 // Show the loading animation, get a post, and append it
@@ -107,35 +126,62 @@ function getRandomInt(min, max) {
 };
 
 // Show save post animation and save selected post (i) to user's saved posts list
-function savePost(i, x) {
+async function savePost(i, id, url, logo, company, title, category, information, date) {
 	var saveButton = document.getElementById("save-button-" + i);
 	
-	if(x == 0 && loggedIn) {
-		saveButton.setAttribute('onclick','savePost(' + i + ', 1)');
+	if(loggedIn) {
+		saveButton.setAttribute('onclick','unsavePost(' + i + ', ' + id + ', "' + url + '", "' + logo + '", "' + company + '", "' + title + '", "' + category + '", "' + information + '", "' + date + '")');
 		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
 		saveButton.style.backgroundSize = "65px 65px";
 		
-		const collSavedPosts = collection(db, 'users', auth.currentUser.uid, 'saved-posts');
-		addDoc(collSavedPosts, {
-			id: "rmtv-" + ,
-		})
-		.then(() => {
-			// Profile created
-			console.log("Your account was created successfully.");
-			location.href = '../';
-		})
-	}
-	else if(loggedIn == false) {
-		alert("You must log in or create an account to save posts.");
+		await setDoc(doc(db, "posts", "rmtv-" + id), {
+		  id: id,
+		  company: company,
+		  url: url,
+		  logo: logo,
+		  company: company,
+		  title: title,
+		  category: category,
+		  information: information,
+		  date: date
+		});
+		
+		const ref = doc(db, "posts", "rmtv-" + id);
+		
+		await setDoc(doc(db, "users", auth.currentUser.uid, "saved-posts", "rmtv-" + id), {
+		  post: ref,
+		  id: id
+		});
+		
 	}
 	else {
-		saveButton.setAttribute('onclick','savePost(' + i + ', 0)');
-		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-unchecked.png')";
-		saveButton.style.backgroundSize = "65px 65px";
+		alert("You must log in or create an account to save posts.");
 	}
-	
 };
 window.savePost = savePost;
+
+
+// Show save post animation and save selected post (i) to user's saved posts list
+async function unsavePost(i, id, url, logo, company, title, category, information, date) {
+	var saveButton = document.getElementById("save-button-" + i);
+	
+	if(loggedIn) {
+		saveButton.setAttribute('onclick','savePost(' + i + ', ' + id + ', "' + url + '", "' + logo + '", "' + company + '", "' + title + '", "' + category + '", "' + information + '", "' + date + '")');
+		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-unchecked.png')";
+		saveButton.style.backgroundSize = "65px 65px";
+		
+		await deleteDoc(doc(db, "users", auth.currentUser.uid, "saved-posts", "rmtv-" + id));
+		
+	}
+	else {
+		alert("You must log in or create an account to save posts.");
+	}
+};
+window.unsavePost = unsavePost;
+
+
+
+		
 
 // Return formatted dated from JSON formatted date input
 function getDate(dateIn) {
@@ -225,31 +271,43 @@ window.changeDescVisibility = changeDescVisibility;
 
 // Pause for requested number of ms
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(resolve, ms));
 };
 
 // Set description to sleep upon request
 async function sleeping(i) {
 	var selectedDesc = document.getElementById("show-desc-" + i);
-  await sleep(750);
-		selectedDesc.style.display = "none";
-		document.getElementById("blockpost-" + i).style.minHeight = "0px";
-		document.getElementById("blockpost-" + i).style.maxHeight = "332px";
-		document.getElementById("show-button-" + i).value = "SHOW DESCRIPTION";
+	await sleep(750);
+	
+	selectedDesc.style.display = "none";
+	document.getElementById("blockpost-" + i).style.minHeight = "0px";
+	document.getElementById("blockpost-" + i).style.maxHeight = "332px";
+	document.getElementById("show-button-" + i).value = "SHOW DESCRIPTION";
 };
 
 // Obtain Remotive post
-function postRemotive(data, savedIDs) {
+function postRemotive(data) {
 	
-	// Get job title
+	// URL
+	var jobURL = data.post.url;
+	
+	// Logo
+	var logo = data.post.company_logo;
+	
+	// Company
+	var company = data.post.company_name;
+	
+	// Title
 	var jobTitle = getFixedString(data.post.title);
 	
 	
-	// Get job category and fix
-	if(data.post.category == 'All others')
-		data.post.category = 'Other';
+	// Category
+	var category = data.post.category;
+	if(category == 'All others')
+		category = 'Other';
 	
-	// Get post information line and fix
+	
+	// Employment type
 	var information = "";
 	
 	if(data.post.job_type == 'full_time')
@@ -260,19 +318,21 @@ function postRemotive(data, savedIDs) {
 		information = "&nbsp; •&nbsp; Contract Position";
 	
 	
-	// Get job location and fix
+	// Location
 	var jobLocation = getFixedString(data.post.candidate_required_location);
 	
 	if(jobLocation != "")
 		information = information + "&nbsp; •&nbsp; " + jobLocation;
 	
 	
-	// Get job salary
+	// Salary
 	if(data.post.salary != "")
 		information = information + "&nbsp; •&nbsp; " + data.post.salary;
 	
+	information = "Remote" + information;
 	
-	// Get job description and fix
+	
+	// Description
 	var jobDescription = data.post.description.substring(0, data.post.description.length - 86);
 	var jobDescription = jobDescription.replace(/<img[^>]*>/g,"");
 	
@@ -282,48 +342,53 @@ function postRemotive(data, savedIDs) {
 	var dateOut = getDate(dateIn);
 	
 	var targetImage = 'https://thecareerdeer.com/src/images/save-unchecked.png';
-	var isSaved = 0;
+	var saveCommand = 'savePost';
 	var postID = data.post.id;
-	let numberID = postID.substring(5, postID.length);
 	
 	// Update save button if post is already saved
-	for (let i = 0; i < savedIDs.length; i++) {
-		if(loggedIn && postID == savedIDs[i]) {
+	for (let i = 0; i < numberOfSavedPosts; i++) {
+		
+		if(loggedIn && postID == savedPosts[i].id.substring(5, 12)) {
 			targetImage = 'https://thecareerdeer.com/src/images/save-checked.png';
-			isSaved = 1;
+			saveCommand = 'unsavePost';
+			console.log("Saved post loaded.");
+			break;
+		}
+		else if(!loggedIn) {
+			break;
 		}
 	}
+
 	
 	
 	// Remotive post template
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-post');
 	postElement.setAttribute("id", ("blockpost-" + count));
-	var postContents = `
-		<div class="user-info">
-		<a href="${data.post.url}">
-			<img style="display: inline-block; float: left; -webkit-box-shadow: 0px 3px 14px 5px rgba(0,0,0,0.025); box-shadow: 0px 3px 13px 5px rgba(0,0,0,0.035);" src="${data.post.company_logo}" alt="${data.post.company_name}" />
-			<div style="float: left; display: inline-block; margin-left: 10px; margin-top: 10px; font-size: 16px; color: #333; font-weight: bold;">${data.post.company_name}</div>
+	postElement.innerHTML = `
+		<div class="post-op">
+		<a href="` + jobURL + `">
+			<img src="` + logo + `" alt="` + company + `" />
+			<div class="post-op-name">` + company + `</div>
 			</a>
-			<input type="button" style="display: inline-block; float: right; height: 65px; width: 65px; margin-top: -10px; margin-right: -25px; border: none; background: url(` + targetImage + `); background-size: 65px 65px;" onclick="savePost(` + count + `, ` + isSaved + `)" id="save-button-` + count + `" />
+			<input type="button" style="background: url(` + targetImage + `); background-size: 65px 65px;" id="save-button-` + count + `" onclick="` + saveCommand + `(` + count + `, ` + postID + `, '` + jobURL + `', '` + logo + `', '` + company + `', '` + jobTitle + `', '` + category + `', '` + information + `', '` + dateOut + `')" />
 		</div>
-		<h2 class="title" style="margin-top: -1px; margin-left: 8px; display: flex;"><a style="margin-top: -10px" href="${data.post.url}">` + jobTitle + `</a></h2>
-		<p class="text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">${data.post.category}</a></p>
-		<p class="text" style="margin-top: -12px; font-size: 15px; margin-left: 10px; margin-bottom: 16px;">Remote` + information + `</p>
+		<h2 class="post-title"><a style="" href="` + jobURL + `">` + jobTitle + `</a></h2>
+		<p class="post-text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">` + category + `</a></p>
+		<p class="post-text">` + information + `</p>
 		
-		<div id="show-desc-` + count + `" style="display: none; transition: opacity .7s; opacity: 0.0; padding: 0px 0px 0px 10px; margin-right: 40px; font-size: 14px;">` + jobDescription + `<br></div>
-		<a><input type="button" id="show-button-` + count + `"style="border: none; margin: auto; margin-left: 10px; margin-bottom: 16px; cursor: pointer; padding: 8px 8px 8px 8px; height: 100%; width: 140px; color: #fff; border-radius: 4px; font-size: 11px; font-weight: bold; vertical-align: middle; text-align: center; align: center; background: none; color: #fff; font: Tahoma; outline: inherit; background-color: #c49700;" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
-		<a href="${data.post.url}">
-			<img src="https://thecareerdeer.com/src/images/icon-link.png" style="width: 24px; height: 24px; position: relative; top: 2px; margin: -5px 0px 0px 8px;" />
+		<div class="show-desc" id="show-desc-` + count + `">` + jobDescription + `<br></div>
+		<a><input type="button" class="show-button-input" id="show-button-` + count + `" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
+		<a href="` + jobURL + `">
+			<img class="post-link-button" src="https://thecareerdeer.com/src/images/icon-link.png" />
 		</a>
 		<div class="user-info">
-			<div style="float: left; display: inline-block; margin-top: 7px; font-size: 14px; margin-left: 12px;">` + "&nbsp;" + dateOut + `</div>
-			<div style="float: right; display: inline-block; margin-top: 6px; margin-right: -20px;"><a href="https://remotive.io/">Provided by Remotive</a></div>
+			<div class="post-date">` + "&nbsp;" + dateOut + `</div>
+			<div class="post-remotive-link"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		
 	`;
-	
-	postElement.innerHTML = postContents;
+
 	
 	// Set max height based on post content size for show/hide animation
 	if(jobTitle.length < 42 && information.length < 77) {
@@ -549,4 +614,7 @@ function deerPost() {
 	container.appendChild(postElement);
 };
 
+}
+
+catch { };
 

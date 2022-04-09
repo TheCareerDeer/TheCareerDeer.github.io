@@ -38,21 +38,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Test Firestore application
-function testFirestore() {
-	const collCities = collection(db, 'cities');
-	getDocs(collCities)
-		.then((snapshot) => {
-			let cities = []
-			snapshot.docs.forEach((doc) => {
-				cities.push({ ...doc.data(), id: doc.id })
-			})
-			console.log(cities)
-	})	.catch(err => {
-			console.log(err.message)
-	});
-};
-
 // Login auth functions
 // Call if user is signed out and on the login page
 function checkLogin() {
@@ -208,7 +193,7 @@ function updateNavBar() {
 	try {
 		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
-		navBar.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a>`;
+		navBar.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a><a href="https://thecareerdeer.com/saved/" id="button-saved">MY JOBS</a>`;
 		
 		// Grab logout button element and add an event listener for button interaction
 		const logout = document.getElementById("logout");
@@ -222,6 +207,7 @@ function updateNavBar() {
 	} catch { };
 	
 	updateButtonAbout();
+	updateButtonSaved();
 };
 
 // Update "About" page navigation bar
@@ -230,5 +216,14 @@ function updateButtonAbout() {
 		const discard = document.querySelector("#page-about");
 		if(discard != null)
 			document.getElementById("button-about").style.opacity = 0.5;
+	} catch { };
+};
+
+// Update "Saved" page navigation bar
+function updateButtonSaved() {
+	try {
+		const discard = document.querySelector("#saved");
+		if(discard != null)
+			document.getElementById("button-saved").style.opacity = 0.5;
 	} catch { };
 };
