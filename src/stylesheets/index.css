@@ -20,11 +20,13 @@ html, body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  
 }
 
 body {
 	margin: 0px;
 	background-color: #db7100;
+  overflow-x: hidden;
 }
 
 a {
@@ -41,7 +43,7 @@ a:hover {
 	opacity: 0.6;
 }
 
-input {
+#homepage input {
   -webkit-appearance: none;
   appearance: none;
 }
@@ -90,6 +92,7 @@ input {
 	position: fixed;
 	z-index: 111111;
 	padding-top: 10px;
+	max-height: 129px;
 }
 
 /* Navigation bar links */
@@ -187,6 +190,45 @@ input {
 	font-size: 20px;
 	margin-bottom: -10px;
 }
+
+#dropper { }
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  float: right;
+  z-index: 333333;
+  margin-left: -110px;
+  overflow-x: hidden;
+}
+
+.dropdown-content {
+  opacity: 0;
+  min-width: 110px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 333333;
+  transition: .7s;
+  border-radius: 5px;
+  margin-top: 71px;
+}
+
+.dropdown-content a {
+  color: black;
+  background-color: white;
+  text-align: right;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  transition: .25s;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd; opacity: .9}
+
+.dropdown:hover .dropdown-content {opacity: .9}
+
+.dropdown:hover #dropper:hover {}
 
 
 

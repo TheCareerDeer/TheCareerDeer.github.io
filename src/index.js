@@ -193,7 +193,16 @@ function updateNavBar() {
 	try {
 		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
-		navBar.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a><a href="https://thecareerdeer.com/saved/" id="button-saved">MY JOBS</a>`;
+		navBar.innerHTML = `
+		<a href="." id="dropper">MY ACCOUNT</div><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a>`;
+		
+		const accountButtons = document.getElementById("accountButtons");
+		accountButtons.innerHTML = `<div class="dropdown"><div class="dropdown-content">
+			<br><br><br>
+			<a href="#">Portfolio&nbsp;&nbsp;</a>
+			<a href="saved/">My Jobs&nbsp;&nbsp;</a>
+			<a style="border-bottom-left-radius: 5px" id="logout" href=".">Log Out&nbsp;&nbsp;</a>
+		  </div></div>`;
 		
 		// Grab logout button element and add an event listener for button interaction
 		const logout = document.getElementById("logout");
