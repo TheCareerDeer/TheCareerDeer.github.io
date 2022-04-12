@@ -24,6 +24,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+var clicked = false;
 
 // Check login status of the user and update page as necessary
 onAuthStateChanged(auth, (user) => {									
@@ -195,6 +196,11 @@ function checkRegister() {
 	} catch { };
 };
 
+// Pause for requested number of ms
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 // Update navigation bar links based on the user's login status
 function updateNavBar() {
 
@@ -203,19 +209,46 @@ function updateNavBar() {
 		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
 		navBar.innerHTML = `
-		<a id="dropper" onmouseover="accountTab()"><img style="height: 60px; margin-top: -30px; position: fixed; margin-left: -88px; opacity: 0.9" src="https://png2.cleanpng.com/sh/3ce4713620755b9f2720a9ea5be5202f/L0KzQYm3VsI5N6FoR91yc4Pzfri0gB9ueKZ5feQ2aXPyfsS0iPFuaqZ3f9d7LXL4hMX2jr1ubZ96RdDudz3wdbB8TcVjO2U8SqZsM3PlQLeATsEyQGk5T6c6MUW2QIK9U8c5QGM5UKg3cH7q/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724c3cb0f7.1188475115301637882486.png" />`;
+		<a id="dropper"><img style="height: 60px; margin-top: -30px; position: fixed; margin-left: -88px; opacity: 0.9" src="https://png2.cleanpng.com/sh/3ce4713620755b9f2720a9ea5be5202f/L0KzQYm3VsI5N6FoR91yc4Pzfri0gB9ueKZ5feQ2aXPyfsS0iPFuaqZ3f9d7LXL4hMX2jr1ubZ96RdDudz3wdbB8TcVjO2U8SqZsM3PlQLeATsEyQGk5T6c6MUW2QIK9U8c5QGM5UKg3cH7q/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724c3cb0f7.1188475115301637882486.png" />`;
 		
 		const accountButtons = document.getElementById("accountButtons");
-		accountButtons.innerHTML = `<div class="dropdown"><div class="dropdown-content">
+		accountButtons.innerHTML = `<div id="dropdown" class="dropdown"><div id="hider" class="dropdown-content">
 			<br><br><br>
 			<a style="margin-top: 4px;" href="saved/">MY JOBS&nbsp;&nbsp;<img src="https://thecareerdeer.com/src/images/save-checked-bw.png" style="height: 24px; position: absolute; margin-left: 1px; margin-top: -4px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-			<a href="saved/">COMPANIES&nbsp;&nbsp&nbsp<img src="https://cdn1.iconfinder.com/data/icons/camping-adventure-and-outdoors-1/32/cottage-cabin-wood-house-camping-outdoor-stay-512.png" style="height: 22px; position: absolute; margin-left: 1px; margin-top: -4px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+			<a href="saved/">COMPANIES&nbsp;&nbsp&nbsp<img src="https://cdn1.iconfinder.com/data/icons/camping-adventure-and-outdoors-1/32/cottage-cabin-wood-house-camping-outdoor-stay-512.png" style="height: 22px; position: absolute; margin-left: 1px; margin-top: -5px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
 			<a href="https://thecareerdeer.com/about/">ABOUT US&nbsp;&nbsp;&nbsp<img src="https://thecareerdeer.com/src/images/logo/small.png" style="height: 21px; position: absolute; margin-left: 1px; margin-top: -4px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
 			<a style="border-bottom-left-radius: 5px" id="logout" href=".">LOG OUT&nbsp;&nbsp;&nbsp<img src="https://thecareerdeer.com/src/images/logout.png" style="height: 14px; width: 16px; position: absolute; margin-top: 0px; margin-left: 5px; opacity: .9;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
 		  </div></div>`;
 		
+		const hider = document.getElementById("hider");
+		
+		navBar.addEventListener('click', (e) => {
+			if(!clicked) {
+				document.getElementById("hider").style.opacity = "1.0";
+				clicked = true;
+			}
+			else {
+				document.getElementById("hider").style.opacity = "0.0"
+				clicked = false;
+			}
+			
+		});
+		
+		
+		navBar.addEventListener('mouseover', (e) => {
+			hider.style.opacity = "1.0";
+		});
+		
+		
+		document.getElementById("notAccountButtons").addEventListener('mouseover', (e) => {
+			
+				hider.style.opacity = "0.0";
+			
+		});
+		
 		// Grab logout button element and add an event listener for button interaction
 		const logout = document.getElementById("logout");
+		
 		logout.addEventListener('click', (e) => {
 			e.preventDefault();
 			signOut(auth).then(() => {

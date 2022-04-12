@@ -196,6 +196,10 @@ a:hover {
 #dropper:hover {
 	cursor: pointer;
 }
+#dropper:hover .dropdown-content {
+	cursor: pointer;
+	opacity: 1.0;
+}
 
 .dropdown {
   position: fixed;
@@ -229,6 +233,8 @@ a:hover {
   transition: .25s;
   font-weight: bold;
 }
+
+
 
 
 .dropdown-content a:hover {background-color: #ddd; opacity: .9}
