@@ -130,18 +130,20 @@ onAuthStateChanged(auth, (user) => {
 
 async function form(companyID) {
 					
-										
-					await setDoc(doc(db, "companies", companyID), {
-					  id: companyID,
+					
+					let trimResult = companyID.replace(/^\s+|\s+$/gm,'');					
+					await setDoc(doc(db, "companies", trimResult), {
+					  id: trimResult,
+					  name: companyID,
 					  ownerID: auth.currentUser.uid,
 					  ownerName: auth.currentUser.displayName
 					});
 					
 					const ref = doc(db, "companies", companyID);
 					
-					await setDoc(doc(db, "users", auth.currentUser.uid, "companies", companyID), {
+					await setDoc(doc(db, "users", auth.currentUser.uid, "companies", trimResult), {
 					  post: ref,
-					  id: companyID
+					  id: trimResult
 					});
 };
 
@@ -342,7 +344,7 @@ function postRemotive() {
 	var logo = "https://thecareerdeer.com/src/images/deer/pretty.jpg";
 	
 	// Company
-	var company = savedPostsContent[count].id;
+	var company = savedPostsContent[count].name;
 	
 	// Title
 	//var jobTitle = savedPostsContent[count].title;
@@ -370,12 +372,17 @@ function postRemotive() {
 	postElement.innerHTML = `
 		<div class="post-op">
 		<a href="` + `">
-			<img src="` + logo + `" alt="` + `" />
-			<div class="post-op-name">` + company + `</div>
+			<img src="` + logo + `" style="height: 50px; width: 50px;" />
+			<div class="post-op-name" style="font-size: 34px">&nbsp` + company + `</div>
 			</a>
 		</div>
-		<p class="post-text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">Created by <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">` + category + `</a></p>
+		<p class="post-text" style="line-height: 24px; margin-top: 8px; font-size: 14px; margin-left: 10px;">by ` + category + `<br>in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">Software Development</a></p>
 		
+		<div class="show-desc" id="show-desc-` + count + `">This is the default company description.<br><br><img src="https://thecareerdeer.com/src/images/deer/015.gif" style="width: 532px; border-radius: 5px;"><br><br>Additional features, including custom company descriptions, will be coming to The Career Deer soon.<br><br></div>
+		<a><input type="button" class="show-button-input" id="show-button-` + count + `" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
+		<a href="https://thecareerdeer.com/about/">
+			<img class="post-link-button" src="https://thecareerdeer.com/src/images/icon-link.png" />
+		</a>
 		
 	`;
 
