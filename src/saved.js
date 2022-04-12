@@ -122,7 +122,7 @@ async function getPost() {
 	
 	for(let i = 0; i < 10; i++) {
 			// Remotive post
-			if(count < savedPosts.length)
+			if(count < savedPosts.length - 1)
 			postRemotive();
 	}
 	
