@@ -375,7 +375,7 @@ function postRemotive(data) {
 		</div>
 		<h2 class="post-title"><a style="" href="` + jobURL + `">` + jobTitle + `</a></h2>
 		<p class="post-text" style="margin-top: 8px; font-size: 13px; margin-left: 10px;">in <a style="font-size: 14px; font-weight: bold; cursor: pointer; color: #904B41;">` + category + `</a></p>
-		<p class="post-text">` + information + `</p>
+		<p class="post-text" style="margin-top: -8px;">` + information + `</p>
 		
 		<div class="show-desc" id="show-desc-` + count + `">` + jobDescription + `<br></div>
 		<a><input type="button" class="show-button-input" id="show-button-` + count + `" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
@@ -383,7 +383,7 @@ function postRemotive(data) {
 			<img class="post-link-button" src="https://thecareerdeer.com/src/images/icon-link.png" />
 		</a>
 		<div class="user-info">
-			<div class="post-date">` + "&nbsp;" + dateOut + `</div>
+			<div class="post-date">` + dateOut + `</div>
 			<div class="post-remotive-link"><a href="https://remotive.io/">Provided by Remotive</a></div>
 		</div>
 		

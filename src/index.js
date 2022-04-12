@@ -194,14 +194,15 @@ function updateNavBar() {
 		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
 		navBar.innerHTML = `
-		<a href="." id="dropper">MY ACCOUNT</div><a href="https://thecareerdeer.com/about/" id="button-about">ABOUT</a>`;
+		<a id="dropper"><img style="height: 60px; margin-top: -30px; position: fixed; margin-left: -80px; opacity: 0.9" src="https://png2.cleanpng.com/sh/3ce4713620755b9f2720a9ea5be5202f/L0KzQYm3VsI5N6FoR91yc4Pzfri0gB9ueKZ5feQ2aXPyfsS0iPFuaqZ3f9d7LXL4hMX2jr1ubZ96RdDudz3wdbB8TcVjO2U8SqZsM3PlQLeATsEyQGk5T6c6MUW2QIK9U8c5QGM5UKg3cH7q/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724c3cb0f7.1188475115301637882486.png" />`;
 		
 		const accountButtons = document.getElementById("accountButtons");
 		accountButtons.innerHTML = `<div class="dropdown"><div class="dropdown-content">
 			<br><br><br>
-			<a href="#">Portfolio&nbsp;&nbsp;</a>
-			<a href="saved/">My Jobs&nbsp;&nbsp;</a>
-			<a style="border-bottom-left-radius: 5px" id="logout" href=".">Log Out&nbsp;&nbsp;</a>
+			<a href="saved/">My Jobs&nbsp;&nbsp;<img src="https://thecareerdeer.com/src/images/save-checked.png" style="height: 24px; position: absolute; margin-left: -3px; margin-top: -2px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+			<a href="saved/">Organizations&nbsp;&nbsp;<img src="https://thecareerdeer.com/src/images/organization.png" style="height: 24px; position: absolute; margin-left: -3px; margin-top: -2px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+			<a href="https://thecareerdeer.com/about/">About Us&nbsp;&nbsp;<img src="https://thecareerdeer.com/src/images/logo/small.png" style="height: 21px; position: absolute; margin-left: 1px; margin-top: -2px;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+			<a style="border-bottom-left-radius: 5px" id="logout" href=".">Log Out&nbsp;&nbsp;<img src="https://thecareerdeer.com/src/images/logout.png" style="height: 14px; width: 18px; position: absolute; margin-top: 2px; margin-left: 3px; opacity: .9;" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
 		  </div></div>`;
 		
 		// Grab logout button element and add an event listener for button interaction
