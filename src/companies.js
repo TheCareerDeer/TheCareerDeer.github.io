@@ -135,7 +135,7 @@ async function form(companyID) {
 					let trimResult = companyID.replace(/^\s+|\s+$/gm,'');
 
 					let exists = false;
-		for(let i = 0; i < savedPostsContent.length - 1; i++) {
+		for(let i = 0; i < savedPostsContent.length; i++) {
 					if(companyID == savedPostsContent[i].id) {
 						exists = true;
 					}
