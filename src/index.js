@@ -167,7 +167,7 @@ function checkRegister() {
 						.then(() => {
 							// Profile created!
 							console.log("Your account was created successfully.");
-							//location.href = '../';
+							location.href = '../';
 						})
 					}).catch((error) => {
 					  // An error occurred

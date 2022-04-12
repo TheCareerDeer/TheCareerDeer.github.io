@@ -60,16 +60,14 @@ onAuthStateChanged(auth, (user) => {
 		getDocs(collSavedPostsContent)
 			.then((snapshot) => {
 				snapshot.docs.forEach((doc) => {
-					for (let i = 0; i < savedPosts.length; i++) {
-					  if(savedPosts[i].id == doc.id) {
 						  savedPostsContent.push({ ...doc.data(), id: doc.id });
-					  }
-					}
+					console.log(savedPostsContent);
 					
 				})
 				
 				// Load four posts on page load
 				if (savedPosts.length == 0) {
+					console.log("0");
 					const postElement = document.createElement('div');
 					postElement.classList.add('block-post');
 					postElement.innerHTML = `
@@ -92,6 +90,9 @@ onAuthStateChanged(auth, (user) => {
 						form(companyID);
 					});
 				}
+					console.log("1");
+				
+				
 				
 				
 				
@@ -131,13 +132,25 @@ onAuthStateChanged(auth, (user) => {
 async function form(companyID) {
 					
 					
-					let trimResult = companyID.replace(/^\s+|\s+$/gm,'');					
-					await setDoc(doc(db, "companies", trimResult), {
-					  id: trimResult,
-					  name: companyID,
-					  ownerID: auth.currentUser.uid,
-					  ownerName: auth.currentUser.displayName
-					});
+					let trimResult = companyID.replace(/^\s+|\s+$/gm,'');
+
+					let exists = false;
+		for(let i = 0; i < savedPostsContent.length; i++) {
+					if(companyID == savedPostsContent[i].id) {
+						exists = true;
+					}
+		}
+		
+					if(!exists) {
+						await setDoc(doc(db, "companies", trimResult), {
+						  id: trimResult,
+						  name: companyID,
+						  ownerID: auth.currentUser.uid,
+						  ownerName: auth.currentUser.displayName
+						});
+					
+					}
+
 					
 					const ref = doc(db, "companies", companyID);
 					
@@ -145,6 +158,8 @@ async function form(companyID) {
 					  post: ref,
 					  id: trimResult
 					});
+					
+					location.href = './';
 };
 
 // Show the loading animation, get a post, and append it
@@ -183,7 +198,7 @@ async function savePost(i, id, url, logo, company, title, category, information,
 		saveButton.style.background = "url('https://thecareerdeer.com/src/images/save-checked.png')";
 		saveButton.style.backgroundSize = "65px 65px";
 		
-		await setDoc(doc(db, "posts", ("rmtv-" + id)), {
+		await addDoc(doc(db, "posts", ("rmtv-" + id)), {
 		  id: id,
 		  company: company,
 		  url: url,
@@ -349,9 +364,16 @@ function postRemotive() {
 	// Title
 	//var jobTitle = savedPostsContent[count].title;
 	
+	var postButton = "";
 	
 	// Category
 	var category = savedPostsContent[count].ownerName;
+	if (savedPostsContent[count].ownerID == auth.currentUser.uid) {
+		postButton = `<a href="https://thecareerdeer.com/post/"><input type="button" class="show-button-input" value="POST A JOB" style="margin-left: 5px;" /></a>`;
+	}
+	else {
+		postButton = "";
+	}
 	
 	
 	// Employment type
@@ -380,6 +402,7 @@ function postRemotive() {
 		
 		<div class="show-desc" id="show-desc-` + count + `">This is the default company description.<br><br><img src="https://thecareerdeer.com/src/images/deer/015.gif" style="width: 532px; border-radius: 5px;"><br><br>Additional features, including custom company descriptions, will be coming to The Career Deer soon.<br><br></div>
 		<a><input type="button" class="show-button-input" id="show-button-` + count + `" value="SHOW DESCRIPTION" onclick="changeDescVisibility(` + count + `)" /></a>
+		` + postButton + `
 		<a href="https://thecareerdeer.com/about/">
 			<img class="post-link-button" src="https://thecareerdeer.com/src/images/icon-link.png" />
 		</a>
