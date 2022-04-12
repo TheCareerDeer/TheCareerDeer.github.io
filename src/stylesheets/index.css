@@ -202,14 +202,14 @@ a:hover {
   display: inline-block;
   float: right;
   z-index: 100000;
-  margin-left: -122px;
+  margin-left: -138px;
   overflow-x: hidden;
   cursor: pointer;
 }
 
 .dropdown-content {
   opacity: 0;
-  min-width: 152px;
+  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 100000;
   transition: .7s;
@@ -222,11 +222,12 @@ a:hover {
   color: #333;
   background-color: white;
   text-align: right;
-  padding: 20px;
+  padding: 18px 18px 18px 17px;
   text-decoration: none;
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   transition: .25s;
+  font-weight: bold;
 }
 
 
