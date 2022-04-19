@@ -209,7 +209,7 @@ function updateNavBar() {
 		// Grab navigation links and update them
 		const navBar = document.getElementById("nav-bar");
 		navBar.innerHTML = `
-		<a id="dropper"><img style="height: 60px; margin-top: -30px; position: fixed; margin-left: -88px; opacity: 0.8" src="https://png2.cleanpng.com/sh/3ce4713620755b9f2720a9ea5be5202f/L0KzQYm3VsI5N6FoR91yc4Pzfri0gB9ueKZ5feQ2aXPyfsS0iPFuaqZ3f9d7LXL4hMX2jr1ubZ96RdDudz3wdbB8TcVjO2U8SqZsM3PlQLeATsEyQGk5T6c6MUW2QIK9U8c5QGM5UKg3cH7q/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724c3cb0f7.1188475115301637882486.png" />`;
+		<a id="dropper"><img style="height: 60px; margin-top: -30px; position: fixed; margin-left: -88px; opacity: 0.77" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" />`;
 		
 		const accountButtons = document.getElementById("accountButtons");
 		accountButtons.innerHTML = `<div id="dropdown" class="dropdown"><div id="hider" class="dropdown-content">
