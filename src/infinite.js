@@ -255,6 +255,7 @@ function changeDescVisibility(i) {
 		selectedDesc.style.width = "100%";
 		selectedDesc.style.height = "100%";
 		selectedDesc.style.display = "block";
+		selectedDesc.style.borderRadius = "5px";
 		document.getElementById("show-button-" + i).value = "HIDE DESCRIPTION";
 		document.getElementById("blockpost-" + i).style.minHeight = "400px";
 		document.getElementById("blockpost-" + i).style.maxHeight = "5000px";
