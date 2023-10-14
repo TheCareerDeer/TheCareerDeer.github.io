@@ -42,7 +42,8 @@ var delay = 0;  // Delay in ms used in between loading posts
 
 
 // Check login status of the user and obtain user data
-onAuthStateChanged(auth, (user) => {									
+onAuthStateChanged(auth, (user) => {
+	getJobs();	
   if(user) {
 	  loggedIn = true;
 	  const collSavedPosts = collection(db, 'users', auth.currentUser.uid, 'saved-posts');
@@ -87,6 +88,14 @@ onAuthStateChanged(auth, (user) => {
 	}
 });
 
+async function getJobs() {
+	if(!getJobs.apiResponse) {
+		const postResponse = await fetch(`https://remotive.com/api/remote-jobs?limit=250`);
+		getJobs.apiResponse = await postResponse.json();
+	}
+	return getJobs.apiResponse;
+};
+
 // Show the loading animation, get a post, and append it
 async function showLoading() {
 	loading.classList.add('show');	// Make loading animation object visible
@@ -97,9 +106,9 @@ async function showLoading() {
 // Get a post using a random integer to select post type
 async function getPost() {
 	// Remotive job post
-	const postResponse = await fetch(`https://remotive.com/api/remote-jobs`);
-	const postData = await postResponse.json();
 	
+	const postData = await getJobs();
+
 	for(let i = 0; i < 10; i++) {
 		var x = getRandomInt(0,10);
 		
